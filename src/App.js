@@ -17,7 +17,8 @@ import {Route,Switch} from 'react-router-dom';
 class App extends Component {
   state = {
     stores: [],
-    deals: []
+    deals: [],
+    currentPage: "StorePage",
   }
 
   componentDidMount(){
@@ -46,8 +47,34 @@ class App extends Component {
   }
 
 
+  handleStoreClick = (store) => {
+    this.setState({currentPage: "StoreDetail"})
+  }
 
+  getComponent(){
+    let component;
+    switch(this.state.currentPage) {
+      case "StorePage":
+        component = < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>;
+        break;
+      case "StoreDetail":
+        component = < StoreDetail deals={this.state.deals} clickDeal={this.clickDeal}/>;
+        break;
+      case "StampCardConfirmation":
+        component = < StampCardConfirmation />;
+        break;
+      case "StampCardDetail":
+        component = < StampCardDetail />
+        break;
+      case "StampCardPage":
+        component = < StampCardPage />
+        break;
+    }
+    return component
+  }
   render() {
+
+
     return (
       <div className="App">
         <header className="App-header">
@@ -57,13 +84,7 @@ class App extends Component {
           <br/>
           <br/>
           <br />
-          <DealCollection
-            deals={this.state.deals}
-            clickDeal={this.clickDeal}
-          />
-
-          {/* for now default will be storepage */}
-          < StorePage stores={this.state.stores}/>
+          {this.getComponent()}
 
       </header>
       </div>

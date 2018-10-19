@@ -4,7 +4,9 @@ import DealCollection from '../containers/DealCollection'
 class StoreDetail extends Component{
   render(){
     return(
-      <h1>StoreDetail Component</h1>
+      <div>
+        < DealCollection deals={this.props.deals} clickDeal={this.props.clickDeal}/>
+      </div>
     )
   }
 }
