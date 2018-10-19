@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const DealCard = (props) => {
   const {deal, clickDeal} = props
 
   return (
+    <Link to="/stamp_card_confirmation">
     <div className="ui card" onClick={() => clickDeal(deal)}>
       <div className="content">
         <div className="header">
@@ -14,6 +16,7 @@ const DealCard = (props) => {
         </div>
       </div>
     </div>
+  </Link>
   )
 }
 
