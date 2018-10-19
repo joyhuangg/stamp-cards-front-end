@@ -20,6 +20,7 @@ class App extends Component {
     deals: [],
     currentPage: "StorePage",
     currentStore: null,
+    currentUser: null,
   }
 
   componentDidMount(){
@@ -50,32 +51,10 @@ class App extends Component {
 
   //redirect to store detail route
   handleStoreClick = (store) => {
-    this.setState({currentPage: "StoreDetail", currentStore: store})
+    this.setState({currentStore: store})
   }
 
 
-  //change this to routes!!!
-  getComponent(){
-    let component;
-    switch(this.state.currentPage) {
-      case "StorePage":
-        component = < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>;
-        break;
-      case "StoreDetail":
-        component = < StoreDetail deals={this.state.deals} store={this.state.currentStore} clickDeal={this.clickDeal}/>;
-        break;
-      case "StampCardConfirmation":
-        component = < StampCardConfirmation />;
-        break;
-      case "StampCardDetail":
-        component = < StampCardDetail />
-        break;
-      case "StampCardPage":
-        component = < StampCardPage />
-        break;
-    }
-    return component
-  }
   render() {
 
 
@@ -88,7 +67,13 @@ class App extends Component {
           <br/>
           <br/>
           <br />
-          {this.getComponent()}
+          <Route exact path="/" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
+          <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
+          <Route exact path="/stamp_card_confirmation" render={()=>< StampCardConfirmation />}/>
+          <Route exact path="/stores/:id" render={() => < StoreDetail deals={this.state.deals} store={this.state.currentStore} clickDeal={this.clickDeal}/> } />
+          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
+          <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
+
 
       </header>
       </div>
