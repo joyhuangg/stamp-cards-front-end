@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import DealCollection, from './containers/DealCollection'
+import DealCollection from '../containers/DealCollection'
 
 class StoreDetail extends Component{
   render(){

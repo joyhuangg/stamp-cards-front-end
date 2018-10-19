@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import StampCardCollection from './components/StampCardCollection'
+import StampCardCollection from './StampCardCollection'
 
 class StampCardPage extends Component{
   render(){

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Filter from './components/Filter'
-import StoreCollection from './containers/StoreCollection'
+import Filter from '../components/Filter'
+import StoreCollection from './StoreCollection'
 
 class StorePage extends Component{
   render(){

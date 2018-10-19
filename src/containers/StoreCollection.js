@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import StoreCard from './components/StoreCard'
+import StoreCard from '../components/StoreCard'
 
 class StoreCollection extends Component{
   render(){

@@ -7,6 +7,7 @@ import StampCardConfirmation from './containers/StampCardConfirmation'
 import StoreDetail from './components/StoreDetail'
 import StampCardDetail from './components/StampCardDetail'
 import StampCardPage from './containers/StampCardPage'
+import {Route,Switch} from 'react-router-dom';
 
 
 //should have state, and lots of conditional renders or routes to link to different
@@ -14,6 +15,8 @@ import StampCardPage from './containers/StampCardPage'
 //NavBar is always rendered but maybe renders different things depending on if someone is
 //logged in as a customer or later on store
 class App extends Component {
+
+
   render() {
     return (
       <div className="App">

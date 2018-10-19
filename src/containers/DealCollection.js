@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import DealCard from './components/DealCard'
+import DealCard from '../components/DealCard'
 
 class DealCollection extends Component{
   render(){
