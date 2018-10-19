@@ -16,30 +16,33 @@ import {Route,Switch} from 'react-router-dom';
 //logged in as a customer or later on store
 class App extends Component {
 
+  state = {
+    stores: [],
+  }
+
+  // Get all stores
+  fetchStores(){
+    fetch("http://localhost:3000/stores")
+      .then(res => res.json())
+      .then(json => this.setState({stores: json}))
+  }
+
+  componentDidMount(){
+    this.fetchStores()
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-
-
-
 
           < NavBar />
+          {/* need to break because they keep overlapping */}
+          <br/>
+          <br/>
+          <br />
+          {/* for now default will be storepage */}
+          < StorePage stores={this.state.stores}/>
 
-        </header>
       </div>
     );
   }
