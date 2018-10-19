@@ -16,6 +16,7 @@ const DealCard = (props) => {
         </div>
       </div>
   // </Link>
+
   )
 }
 
