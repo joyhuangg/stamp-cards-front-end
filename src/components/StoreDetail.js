@@ -3,11 +3,13 @@ import DealCollection from '../containers/DealCollection'
 
 class StoreDetail extends Component{
   render(){
+    console.log(this.props)
     const id = parseInt(this.props.match.params.id)
+    // debugger
     const store = this.props.stores.find((store) => store.id === id)
     return(
       <div>
-        < DealCollection deals={this.props.deals} clickDeal={this.props.clickDeal} store={store}/>
+        {store ? < DealCollection deals={this.props.deals} clickDeal={this.props.clickDeal} store={store}/> : null }
       </div>
     )
   }

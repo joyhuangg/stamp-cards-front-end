@@ -5,6 +5,7 @@ const DealCard = (props) => {
   const {deal, clickDeal} = props
   return (
     // <Link to={`/stores/${props.store.id}`}>
+    <Link to={`/stamp_card_confirmation/${deal.id}`}>
       <div className="ui card" onClick={() => clickDeal(deal)}>
         <div className="content">
           <div className="header">
@@ -15,7 +16,7 @@ const DealCard = (props) => {
           </div>
         </div>
       </div>
-  // </Link>
+    </Link>
 
   )
 }

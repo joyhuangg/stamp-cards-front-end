@@ -26,9 +26,8 @@ class App extends Component {
   }
 
   componentDidMount(){
-    this.fetchStores()
-    this.getDeals()
-    this.getStampCards()
+    // Promise.all
+    Promise.all([this.fetchStores(), this.getDeals(),this.getStampCards()])
   }
 
   // Get all stores
@@ -40,7 +39,7 @@ class App extends Component {
 
   //redirect to store detail route
   handleStoreClick = (store) => {
-    this.setState({currentStore: store})
+    // this.setState({currentStore: store})
   }
 
   getDeals = () => {
@@ -62,6 +61,7 @@ class App extends Component {
 
   checkStampCard = () => {
     // console.log(this.state.currentDeal)
+  }
 
   //redirect to store detail route
   handleStoreClick = (store) => {
@@ -82,7 +82,7 @@ class App extends Component {
           <Route exact path="/" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
 
-          <Route exact path="/stamp_card_confirmation/:id" render={()=>< StampCardConfirmation />}/>
+          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} deals={this.state.deals}/>}/>
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} clickDeal={this.clickDeal}/> } />
 
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />

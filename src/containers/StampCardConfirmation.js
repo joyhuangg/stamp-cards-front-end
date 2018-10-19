@@ -5,6 +5,8 @@ class StampCardConfirmation extends Component{
     if (this.props.stamp_cards === null) {
       return <div>Loading...</div>
     }
+    const id = parseInt(this.props.match.params.id)
+    const deal = this.props.deals.find((deal) => deal.id === id)
     return(
       <div>
         <h1>StampCardConfirmation Component</h1>
