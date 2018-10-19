@@ -53,14 +53,15 @@ class App extends Component {
         <header className="App-header">
 
           < NavBar />
-          <DealCollection
-            deals={this.state.deals}
-            clickDeal={this.clickDeal}
-          />
           {/* need to break because they keep overlapping */}
           <br/>
           <br/>
           <br />
+          <DealCollection
+            deals={this.state.deals}
+            clickDeal={this.clickDeal}
+          />
+
           {/* for now default will be storepage */}
           < StorePage stores={this.state.stores}/>
 
