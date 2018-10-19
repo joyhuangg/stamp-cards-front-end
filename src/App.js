@@ -15,12 +15,13 @@ import {Route,Switch} from 'react-router-dom';
 //NavBar is always rendered but maybe renders different things depending on if someone is
 //logged in as a customer or later on store
 class App extends Component {
+
   state = {
     stores: [],
     deals: [],
     currentPage: "StorePage",
-    currentStore: null,
     currentUser: null,
+    currentDeal: null,
   }
 
   componentDidMount(){
@@ -36,8 +37,7 @@ class App extends Component {
 
 
   clickDeal = (deal) => {
-    console.log(deal)
-
+    this.setState({currentDeal: deal})
   }
 
 
@@ -51,7 +51,7 @@ class App extends Component {
 
   //redirect to store detail route
   handleStoreClick = (store) => {
-    this.setState({currentStore: store})
+    // this.setState({currentStore: store})
   }
 
 
@@ -69,8 +69,8 @@ class App extends Component {
           <br />
           <Route exact path="/" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
-          <Route exact path="/stamp_card_confirmation" render={()=>< StampCardConfirmation />}/>
-          <Route exact path="/stores/:id" render={() => < StoreDetail deals={this.state.deals} store={this.state.currentStore} clickDeal={this.clickDeal}/> } />
+          <Route exact path="/stamp_card_confirmation/:id" render={()=>< StampCardConfirmation />}/>
+          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} clickDeal={this.clickDeal}/> } />
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
 
