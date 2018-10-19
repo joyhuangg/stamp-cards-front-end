@@ -22,7 +22,7 @@ class NavBar extends Component{
         <Menu fixed='top' inverted>
           <Container>
             <Menu.Item as='a' header>
-              <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} />
+              {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
               Project Name
             </Menu.Item>
             <Menu.Item as='a'>Home</Menu.Item>
