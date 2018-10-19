@@ -19,6 +19,7 @@ class App extends Component {
     stores: [],
     deals: [],
     currentPage: "StorePage",
+    currentStore: null,
   }
 
   componentDidMount(){
@@ -47,10 +48,13 @@ class App extends Component {
   }
 
 
+  //redirect to store detail route
   handleStoreClick = (store) => {
-    this.setState({currentPage: "StoreDetail"})
+    this.setState({currentPage: "StoreDetail", currentStore: store})
   }
 
+
+  //change this to routes!!!
   getComponent(){
     let component;
     switch(this.state.currentPage) {
@@ -58,7 +62,7 @@ class App extends Component {
         component = < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>;
         break;
       case "StoreDetail":
-        component = < StoreDetail deals={this.state.deals} clickDeal={this.clickDeal}/>;
+        component = < StoreDetail deals={this.state.deals} store={this.state.currentStore} clickDeal={this.clickDeal}/>;
         break;
       case "StampCardConfirmation":
         component = < StampCardConfirmation />;
