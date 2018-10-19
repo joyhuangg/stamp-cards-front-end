@@ -12,6 +12,8 @@ import {
   Segment,
 } from 'semantic-ui-react'
 
+
+
 // general nav bar that will have Login, SignUp on Home Page
 // Stores, StampCards, LogOut Link on Customer's sign in
 // Deals, Customers link on future Store's admin sign in

@@ -16,7 +16,13 @@ import {Route,Switch} from 'react-router-dom';
 //logged in as a customer or later on store
 class App extends Component {
   state = {
+    stores: [],
     deals: []
+  }
+
+  componentDidMount(){
+    this.fetchStores()
+    this.getDeals()
   }
 
   getDeals = () => {
@@ -25,14 +31,20 @@ class App extends Component {
       .then(data => this.setState({deals: data}))
   }
 
-  componentDidMount() {
-    this.getDeals()
-  }
 
   clickDeal = (deal) => {
     console.log(deal)
 
   }
+
+
+  // Get all stores
+  fetchStores(){
+    fetch("http://localhost:3000/stores")
+      .then(res => res.json())
+      .then(json => this.setState({stores: json}))
+  }
+
 
 
   render() {
@@ -45,8 +57,14 @@ class App extends Component {
             deals={this.state.deals}
             clickDeal={this.clickDeal}
           />
+          {/* need to break because they keep overlapping */}
+          <br/>
+          <br/>
+          <br />
+          {/* for now default will be storepage */}
+          < StorePage stores={this.state.stores}/>
 
-        </header>
+      </header>
       </div>
     );
   }
