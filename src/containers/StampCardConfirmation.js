@@ -17,7 +17,10 @@ class StampCardConfirmation extends Component{
             <i className="right floated star icon"></i>
             <div className="header">StampCard</div>
             <div className="description">
-              {stamp_card ? <p key={stamp_card.id}>{stamp_card.current_points}</p> : <p>No Stamp Card Yet</p>}
+              {stamp_card ? <p key={stamp_card.id}>Current Points: {stamp_card.current_points}</p>
+              :
+              <p>No Stamp Card Yet</p>
+            }
             </div>
           </div>
           <div className="extra content">
