@@ -19,7 +19,6 @@ class App extends Component {
   state = {
     stores: [],
     deals: [],
-    currentPage: "StorePage",
     stamp_cards: null
   }
 
@@ -47,7 +46,17 @@ class App extends Component {
       .then(data => this.setState({stamp_cards: data}))
   }
 
-
+  postStampCard = (id) => {
+    fetch('http://localhost:3000/stamp_cards', {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        customer_id: 1,
+        deal_id: id,
+        current_points: 0
+      })
+    })
+  }
 
   render() {
     return (
@@ -63,7 +72,7 @@ class App extends Component {
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores}/>} />
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
 
-          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} />}/>
+          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} postStampCard={this.postStampCard}/>}/>
           <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
           <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
 
