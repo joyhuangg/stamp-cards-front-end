@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import DealCard from '../components/DealCard'
 
 const DealCollection = (props) => {
-  console.log(props)
   const {deals, clickDeal, store} = props
   // debugger
   const filteredDeals = deals.filter(deal => deal.store_id === store.id)

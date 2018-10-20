@@ -69,7 +69,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.stamp_cards)
     return (
       <div className="App">
         <header className="App-header">
@@ -81,13 +80,11 @@ class App extends Component {
           <br />
           <Route exact path="/" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
-
-          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} deals={this.state.deals}/>}/>
+          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} />}/>
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} clickDeal={this.clickDeal}/> } />
 
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
-
 
       </header>
       </div>

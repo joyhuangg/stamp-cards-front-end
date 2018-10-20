@@ -6,7 +6,7 @@ class StampCardConfirmation extends Component{
       return <div>Loading...</div>
     }
     const id = parseInt(this.props.match.params.id)
-    const deal = this.props.deals.find((deal) => deal.id === id)
+    const stamp_card = this.props.stamp_cards.find(st => st.deal_id === id)
     return(
       <div>
         <h1>StampCardConfirmation Component</h1>
@@ -17,7 +17,7 @@ class StampCardConfirmation extends Component{
             <i className="right floated star icon"></i>
             <div className="header">StampCard</div>
             <div className="description">
-              {this.props.stamp_cards.map(stampcard => <p key={stampcard.id}>{stampcard.current_points}</p>)}
+              {stamp_card ? <p key={stamp_card.id}>{stamp_card.current_points}</p> : <p>No Stamp Card Yet</p>}
             </div>
           </div>
           <div className="extra content">
