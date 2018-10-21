@@ -2,7 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const DealCard = (props) => {
+
   const {deal} = props
+
   return (
     <Link to={`/stamp_card_confirmation/${deal.id}`}>
       <div className="ui card">
