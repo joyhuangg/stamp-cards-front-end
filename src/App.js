@@ -19,27 +19,13 @@ class App extends Component {
   state = {
     stores: [],
     deals: [],
-    currentPage: "StorePage",
-    currentUser: null,
-    currentDeal: null,
+    stamp_cards: null
   }
 
   componentDidMount(){
-    this.fetchStores()
-    this.getDeals()
+    // Promise.all
+    Promise.all([this.fetchStores(), this.getDeals(),this.getStampCards()])
   }
-
-  getDeals = () => {
-    fetch('http://localhost:3000/deals')
-      .then(res => res.json())
-      .then(data => this.setState({deals: data}))
-  }
-
-
-  clickDeal = (deal) => {
-    this.setState({currentDeal: deal})
-  }
-
 
   // Get all stores
   fetchStores(){
@@ -48,16 +34,31 @@ class App extends Component {
       .then(json => this.setState({stores: json}))
   }
 
-
-  //redirect to store detail route
-  handleStoreClick = (store) => {
-    // this.setState({currentStore: store})
+  getDeals = () => {
+    fetch('http://localhost:3000/deals')
+      .then(res => res.json())
+      .then(data => this.setState({deals: data}))
   }
 
+  getStampCards = () => {
+    fetch('http://localhost:3000/stamp_cards')
+      .then(res => res.json())
+      .then(data => this.setState({stamp_cards: data}))
+  }
+
+  postStampCard = (id) => {
+    fetch('http://localhost:3000/stamp_cards', {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        customer_id: 1,
+        deal_id: id,
+        current_points: 0
+      })
+    })
+  }
 
   render() {
-
-
     return (
       <div className="App">
         <header className="App-header">
@@ -67,13 +68,13 @@ class App extends Component {
           <br/>
           <br/>
           <br />
-          <Route exact path="/" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
-          <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
-          <Route exact path="/stamp_card_confirmation/:id" render={()=>< StampCardConfirmation />}/>
-          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} clickDeal={this.clickDeal}/> } />
-          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
-          <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
+          <Route exact path="/" render={()=> < StorePage stores={this.state.stores} />} />
+          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores}/>} />
+          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
 
+          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} postStampCard={this.postStampCard} deals={this.state.deals}/>}/>
+          <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
+          <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />
 
       </header>
       </div>
