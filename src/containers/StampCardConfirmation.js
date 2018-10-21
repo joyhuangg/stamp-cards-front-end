@@ -1,14 +1,28 @@
 import React, {Component} from 'react'
+import StampCardForm from '../components/StampCardForm'
+import StampCard from '../components/StampCard'
+import { withRouter } from "react-router-dom"
 
 class StampCardConfirmation extends Component{
 
-  form = () => <div><form>
-        <label htmlFor="code">Enter Code</label>
-        <input type="text" id="code" name="code"/>
-        <input type="submit"/>
-      </form></div>
+  state = {
+    code: null
+  }
 
-  renderStampCard = (stamp_card) => <div><p>Current Points: {stamp_card.current_points}</p> {this.form()} </div>
+  updateCode = (e) => {
+    e.preventDefault()
+    this.setState({code: e.target[0].value})
+  }
+
+  confirmedCode =(id) => {
+    const foundDeal = this.props.deals.find(deal => deal.id === id)
+    console.log(foundDeal)
+    if (foundDeal) {
+      return this.state.code === foundDeal.store_id.toString() ? <StampCard /> : null
+    }
+  }
+
+  renderStampCard = (stamp_card) => <div><p>Current Points: {stamp_card.current_points}</p></div>
 
   render(){
     if (this.props.stamp_cards === null) {
@@ -27,11 +41,11 @@ class StampCardConfirmation extends Component{
             <i className="right floated star icon"></i>
             <div className="header">StampCard</div>
             <div className="description">
-
               {!stamp_card ?
-                <div>{this.props.postStampCard(id)}<p>Current Points: 0</p> {this.form()} </div>
+                <div>{this.props.postStampCard(id)}<p>Current Points: 0</p></div>
               :
                this.renderStampCard(stamp_card)}
+               <StampCardForm updateCode={this.updateCode}/>
             </div>
           </div>
           <div className="extra content">
@@ -47,10 +61,15 @@ class StampCardConfirmation extends Component{
         </div>
         {/* end card */}
 
+        {/* go back to previous page */}
+        <button onClick={this.props.history.goBack}>Go Back</button>
+
+        {/* check the code */}
+        {this.confirmedCode(id)}
 
       </div>
     )
   }
 }
 
-export default StampCardConfirmation
+export default withRouter(StampCardConfirmation)
