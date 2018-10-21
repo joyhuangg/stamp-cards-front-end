@@ -83,7 +83,7 @@ class App extends Component {
           <Route exact path="/stamp_card/:id" render={()=> < StampCardConfirmation />} />
 
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} deals={this.state.deals}/>}/>
-          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} clickDeal={this.clickDeal}/> } />
+          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} user={this.state.currentUser} clickDeal={this.clickDeal}/> } />
 
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleStoreClick ={this.handleStoreClick}/>} />
           <Route exact path="/stamp_cards" render={()=> < StampCardPage />} />

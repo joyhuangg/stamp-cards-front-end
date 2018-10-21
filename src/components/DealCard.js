@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const DealCard = (props) => {
-  const {deal, clickDeal} = props
+  const {deal, clickDeal, user} = props
   return (
     // <Link to={`/stores/${props.store.id}`}>
     <Link to={`/stamp_card_confirmation/${deal.id}`}>
