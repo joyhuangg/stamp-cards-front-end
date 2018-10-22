@@ -6,7 +6,10 @@ import StampCardConfirmation from './containers/StampCardConfirmation'
 import StoreDetail from './components/StoreDetail'
 import StampCardDetail from './components/StampCardDetail'
 import StampCardPage from './containers/StampCardPage'
+import Home from './components/Home'
 import DealCollection from './containers/DealCollection'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
 import {Route,Switch, Redirect, withRouter} from 'react-router-dom';
 
 
@@ -17,14 +20,53 @@ import {Route,Switch, Redirect, withRouter} from 'react-router-dom';
 class App extends Component {
 
   state = {
+    auth: {currentUser: {}},
+    newUser: {
+      username: "",
+      name: "",
+      password: ""
+    },
     stores: [],
     deals: [],
     stamp_cards: [],
   }
 
+
+
   componentDidMount(){
     // Promise.all
-    Promise.all([this.fetchStores(), this.getDeals(),this.getStampCards()])
+    const token = localStorage.getItem("token")
+    if (token !== "undefined"){
+      Promise.all([this.getCurrentUser(token), this.fetchStores(), this.getDeals(),this.getStampCards()])
+
+    }
+  }
+
+  handleLogin = (resp) => {
+    const currentUser = {currentUser:resp};
+    localStorage.setItem("token", resp.token);
+    this.setState({auth: currentUser})
+    console.log("LOGGED IN")
+  }
+
+  handleLogout = () => {
+    localStorage.removeItem("token");
+    this.setState({auth: {currentUser: {}}})
+    console.log("SIGNED OUT")
+  }
+
+  handleSignUpSubmit = (e, obj) => {
+    this.setState({newUser: obj})
+    fetch("http://localhost:3000/customers",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(obj)
+    })
+    .then(resp => this.props.history.push("/login"))
+    console.log("SIGNED UP")
   }
 
   // Get all stores
@@ -38,6 +80,21 @@ class App extends Component {
     fetch('http://localhost:3000/deals')
       .then(res => res.json())
       .then(data => this.setState({deals: data}))
+  }
+
+  getCurrentUser = (token) => {
+    fetch('http://localhost:3000/current_user', {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: token
+      }
+    })
+    .then(res => res.json())
+    .then(user => {
+      const currentUser = {currentUser: user};
+      this.setState({auth: currentUser});
+    })
   }
 
   getStampCards = () => {
@@ -140,14 +197,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
 
-          < NavBar />
+          < NavBar handleLogout={this.handleLogout} currentUser={this.state.auth.currentUser}/>
           {/* need to break because they keep overlapping */}
           <br/>
           <br/>
           <br />
 
-          <Route exact path="/" render={()=> < StorePage stores={this.state.stores} />} />
-          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores}/>} />
+          <Route exact path="/" render={()=> < Home />} />
+          <Route exact path="/login" render={()=> < Login  handleLogin={this.handleLogin}/>} />
+          <Route exact path="/signup" render={()=> < SignUp handleSignUpSubmit={this.handleSignUpSubmit}/>} />
+          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores}/>} currentUser={this.state.auth.currentUser}/>
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> < StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />

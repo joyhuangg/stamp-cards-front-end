@@ -20,6 +20,7 @@ import {
 // Deals, Customers link on future Store's admin sign in
 class NavBar extends Component{
   render(){
+    const loggedIn = !!this.props.currentUser.id;
     return(
       <div>
         <Menu fixed='top' inverted>
@@ -30,6 +31,13 @@ class NavBar extends Component{
             </Menu.Item>
             <Menu.Item><Link to='/'>Home</Link></Menu.Item>
             <Menu.Item><Link to="/stamp_cards">See Stamp Cards</Link></Menu.Item>
+            <Menu.Item>
+            {loggedIn ? (<Link to="/login" onClick={this.props.handleLogout}>Logout</Link>) : <Link to="/login">Login</Link>}
+            </Menu.Item>
+            {/* <Menu.Item><Link to="/login">Login</Link></Menu.Item> */}
+            <Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>
+            {/* <Menu.Item><Link to="/">LogOut</Link></Menu.Item> */}
+
 
             <Dropdown item simple text='Dropdown'>
               <Dropdown.Menu>
