@@ -8,6 +8,7 @@ import StampCardDetail from './components/StampCardDetail'
 import StampCardPage from './containers/StampCardPage'
 import DealCollection from './containers/DealCollection'
 import {Route,Switch, Redirect, withRouter} from 'react-router-dom';
+import _ from 'lodash'
 
 
 //should have state, and lots of conditional renders or routes to link to different
@@ -20,7 +21,18 @@ class App extends Component {
     stores: [],
     deals: [],
     stamp_cards: [],
+    searchTerm: ''
   }
+
+  handleSearch = (e, value) => {
+    this.setState({searchTerm: value})
+  }
+
+  renderStores = () => {
+   const newStores = [...this.state.stores]
+   const re = new RegExp(_.escapeRegExp(this.state.searchTerm), 'i')
+   return this.state.searchTerm ? newStores.filter(store => re.test(store.name)) : newStores
+ }
 
   componentDidMount(){
     // Promise.all
@@ -28,7 +40,7 @@ class App extends Component {
   }
 
   // Get all stores
-  fetchStores(){
+  fetchStores = () => {
     fetch("http://localhost:3000/stores")
       .then(res => res.json())
       .then(json => this.setState({stores: json}))
@@ -121,10 +133,6 @@ class App extends Component {
     .catch((error) => { console.log(error)} )
   }
 
-
-
-
-
   render() {
     return (
       <div className="App">
@@ -136,7 +144,7 @@ class App extends Component {
           <br/>
           <br />
 
-          <Route exact path="/" render={()=> < StorePage stores={this.state.stores} />} />
+          <Route exact path="/" render={()=> < StorePage stores={this.renderStores()} handleSearch={this.handleSearch}/>} />
           <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores}/>} />
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
