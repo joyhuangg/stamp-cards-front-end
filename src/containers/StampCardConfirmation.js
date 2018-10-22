@@ -49,10 +49,10 @@ class StampCardConfirmation extends Component{
       stamp_card =  {
                   customer_id: 1,
                   deal_id: this.state.id,
-                  current_points: 0
+                  current_points: 0,
                 }
     }
-    if (this.props.stamp_cards === null || !deal) {
+    if (this.props.stamp_cards === null || !deal || !stamp_card) {
       return <div>Loading...</div>
     }
     else{

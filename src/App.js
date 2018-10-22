@@ -82,13 +82,17 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       let i = newStampCards.findIndex((st) => st.id === id)
-      newStampCards[i] = data
-    })
-    .then(r => {
-      this.setState({stamp_cards: newStampCards})
+      ++newStampCards[i].current_points
+      this.setState({stamp_cards: newStampCards}, () => {this.props.history.push(`/stamp_cards/${id}`)})
       //redirect to show page here?
-      this.props.history.push(`/stamp_cards/${id}`)
-      }).catch((error) => { console.log(error)} )
+
+    })
+    // .then(r => {
+    //   this.setState({stamp_cards: newStampCards})
+    //   //redirect to show page here?
+    //   this.props.history.push(`/stamp_cards/${id}`)
+    //   })
+    .catch((error) => { console.log(error)} )
   }
 
 
