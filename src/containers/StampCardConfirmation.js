@@ -45,14 +45,16 @@ class StampCardConfirmation extends Component{
     const id = parseInt(this.props.match.params.id)
     let deal = this.props.deals.find((deal) => deal.id === id)
     let stamp_card = this.props.stamp_cards.find(st => st.deal_id === parseInt(this.props.match.params.id))
-    if (!stamp_card){
+    if (!stamp_card && deal){
       stamp_card =  {
                   customer_id: 1,
                   deal_id: this.state.id,
                   current_points: 0,
+                  deal: deal,
+                  store: deal.store
                 }
     }
-    if (this.props.stamp_cards === null || !deal || !stamp_card) {
+    if (this.props.stamp_cards === null || !deal || !deal.store ||!stamp_card) {
       return <div>Loading...</div>
     }
     else{
