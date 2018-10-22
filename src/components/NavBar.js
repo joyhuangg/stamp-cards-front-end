@@ -29,6 +29,7 @@ class NavBar extends Component{
               Project Name
             </Menu.Item>
             <Menu.Item><Link to='/'>Home</Link></Menu.Item>
+            <Menu.Item><Link to='/stamp_cards'>See Stamp Cards</Link></Menu.Item>
 
             <Dropdown item simple text='Dropdown'>
               <Dropdown.Menu>

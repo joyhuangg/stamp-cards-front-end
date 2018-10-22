@@ -46,6 +46,37 @@ class App extends Component {
       .then(data => this.setState({stamp_cards: data}))
   }
 
+  verifyCode = (e, props) => {
+   e.preventDefault()
+    // if input code matches store id
+    if(props.store.id === props.code ){
+      //if stampcard has 0 (post new stamp card)
+      if (props.stamp_card.current_points === 0){
+        this.postStampCard(props.deal.id)
+        //redirect to show detail page
+      }
+      // if stampcard has more than one, find stampcard by id, increment
+      else if (props.stamp_card.current_points < props.deal.max_points){
+        let newCard = {...props.stamp_card}
+        //its current_points by one, and patch that stampcard
+        newCard.current_points += 1
+        this.patchStampCard(props.stamp_card.id, newCard)
+        console.log("Correct code, making patch request")
+
+        //redirect to show detail page
+      }
+      else{
+        alert("Stamp Card Full")
+      }
+    }
+      //else if not a match
+    else{
+      //alert "Employee Verification Incorrect"
+      alert("Employee Verification Incorrect. Try again.")
+      //redirect to stampcardconfirmation page
+    }
+  }
+
   postStampCard = (deal_id) => {
     let newStampCards = [...this.state.stamp_cards]
     let deal = this.state.deals.find(deal => deal.id === deal_id)
@@ -74,6 +105,7 @@ class App extends Component {
 
   patchStampCard = (id, body) => {
     let newStampCards = [...this.state.stamp_cards]
+    // let idx
     fetch(`http://localhost:3000/stamp_cards/${id}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json"},
@@ -82,53 +114,18 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       let i = newStampCards.findIndex((st) => st.id === id)
-      newStampCards[i] = data
+      newStampCards[i].current_points++
+      // idx = i
     })
     .then(r => {
       this.setState({stamp_cards: newStampCards})
-      //redirect to show page here?
       this.props.history.push(`/stamp_cards/${id}`)
+      //redirect to show page here?
       }).catch((error) => { console.log(error)} )
   }
 
 
-  verifyCode = (e, props) => {
 
-   e.preventDefault()
-    // if input code matches store id
-    if(props.store.id === props.code ){
-      //if stampcard has 0 (post new stamp card)
-      if (props.stamp_card.current_points === 0){
-        this.postStampCard(props.deal.id)
-        //redirect to show detail page
-      }
-      // if stampcard has more than one, find stampcard by id, increment
-      else if (props.stamp_card.current_points < props.deal.max_points){
-        let newCard = {...props.stamp_card}
-        //its current_points by one, and patch that stampcard
-        newCard.current_points += 1
-        this.patchStampCard(props.stamp_card.id, newCard)
-        console.log("Correct code, making patch request")
-
-        //redirect to show detail page
-      }
-      else{
-        alert("Stamp Card Full")
-      }
-
-    }
-      //else if not a match
-    else{
-      //alert "Employee Verification Incorrect"
-      alert("Employee Verification Incorrect. Try again.")
-      //redirect to stampcardconfirmation page
-    }
-
-
-
-
-
-  }
 
 
   render() {

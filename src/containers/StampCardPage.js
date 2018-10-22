@@ -4,7 +4,7 @@ import StampCardCollection from './StampCardCollection'
 class StampCardPage extends Component{
   render(){
     return(
-      <h1>StampCardPage Component</h1>
+      <StampCardCollection stamp_cards={this.props.stamp_cards} />
     )
   }
 }

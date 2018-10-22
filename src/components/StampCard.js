@@ -11,9 +11,9 @@ class StampCard extends Component{
         <div className="content">
           <i className="right floated like icon"></i>
           <i className="right floated star icon"></i>
-          <div className="header">{this.props.deal.store.name}</div>
+          <div className="header">{this.props.stamp_card.store.name}</div>
           <div className="description">
-            <div><p>Deal Description: {this.props.deal.description}</p></div>
+            <div><p>Deal Description: {this.props.stamp_card.deal.description}</p></div>
              <div><p>Current Points: {this.props.stamp_card.current_points}</p></div>
           </div>
         </div>
