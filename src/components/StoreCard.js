@@ -10,7 +10,6 @@ class StoreCard extends Component{
           <Image avatar src='/images/avatar/small/helen.jpg' />
           <List.Content>
             <List.Header>{this.props.store.name}</List.Header>
-            An excellent companion
           </List.Content>
         </List.Item>
     </Link>

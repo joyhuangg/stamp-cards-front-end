@@ -5,7 +5,6 @@ class StampCard extends Component{
   render(){
     return(
     <div>
-      <h1>StampCard Component</h1>
       {/* start card */}
       <div className="ui card">
         <div className="content">
@@ -13,7 +12,7 @@ class StampCard extends Component{
           <i className="right floated star icon"></i>
           <div className="header">{this.props.stamp_card.store.name}</div>
           <div className="description">
-            <div><p>Deal Description: {this.props.stamp_card.deal.description}</p></div>
+            <div><p>Deal Description: {this.props.stamp_card.deal.category}</p></div>
              <div><p>Current Points: {this.props.stamp_card.current_points}</p></div>
           </div>
         </div>
