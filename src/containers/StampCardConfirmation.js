@@ -6,69 +6,75 @@ import { withRouter } from "react-router-dom"
 class StampCardConfirmation extends Component{
 
   state = {
+    //code should be store id not deal id, just for ease of stores to use 1 id to verify all deals
+    id: parseInt(this.props.match.params.id),
+    deal: this.props.deals.find(de => de.id === parseInt(this.props.match.params.id)),
+    // will change this later to be && statement that user -deal association exists
+    stamp_card: this.props.stamp_cards.find(st => st.deal_id === parseInt(this.props.match.params.id)),
     code: null
   }
 
-  updateCode = (e) => {
+  //probably need to make this part of App so that
+  //I can update the list of stampcards
+  //need to pass it the store_id it needs to match as well as the
+  //event target value in order to inspect and then control
+  //whether to post or patch the points of the stampcard
+  //also need to redirect based on input passing or not
+  updateCode = (e, props) => {
     e.preventDefault()
-    this.setState({code: e.target[0].value})
+    let code = parseInt(e.target[0].value)
+    let newProps = {...props}
+    newProps.code = code
+    this.props.verifyCode(e, newProps)
+    // this.setState({code: e.target[0].value})
+    // {/* check the code */}
+    // {this.confirmedCode(this.state.id)}
   }
 
-  confirmedCode =(id) => {
-    const foundDeal = this.props.deals.find(deal => deal.id === id)
-    console.log(foundDeal)
-    if (foundDeal) {
-      return this.state.code === foundDeal.store_id.toString() ? <StampCard /> : null
-    }
-  }
 
-  renderStampCard = (stamp_card) => <div><p>Current Points: {stamp_card.current_points}</p></div>
+
+  // confirmedCode =(id) => {
+  //   const foundDeal = this.props.deals.find(deal => deal.id === id)
+  //   console.log(foundDeal)
+  //   if (foundDeal) {
+  //     return this.state.code === foundDeal.store_id.toString() ? <StampCard /> : null
+  //   }
+  // }
 
   render(){
-    if (this.props.stamp_cards === null) {
+    const id = parseInt(this.props.match.params.id)
+    let deal = this.props.deals.find((deal) => deal.id === id)
+    let stamp_card = this.props.stamp_cards.find(st => st.deal_id === parseInt(this.props.match.params.id))
+    if (!stamp_card){
+      stamp_card =  {
+                  customer_id: 1,
+                  deal_id: this.state.id,
+                  current_points: 0
+                }
+    }
+    if (this.props.stamp_cards === null || !deal) {
       return <div>Loading...</div>
     }
-    const id = parseInt(this.props.match.params.id)
-    const stamp_card = this.props.stamp_cards.find(st => st.deal_id === id)
+    else{
+      return(
+        <div>
+          <h1>Enter Store Code:</h1>
 
-    return(
-      <div>
-        <h1>StampCardConfirmation Component</h1>
-        {/* start card */}
-        <div className="ui card">
-          <div className="content">
-            <i className="right floated like icon"></i>
-            <i className="right floated star icon"></i>
-            <div className="header">StampCard</div>
-            <div className="description">
-              {!stamp_card ?
-                <div>{this.props.postStampCard(id)}<p>Current Points: 0</p></div>
-              :
-               this.renderStampCard(stamp_card)}
-               <StampCardForm updateCode={this.updateCode}/>
-            </div>
-          </div>
-          <div className="extra content">
-            <span className="left floated like">
-              <i className="like icon"></i>
-              Like
-            </span>
-            <span className="right floated star">
-              <i className="star icon"></i>
-              Favorite
-            </span>
-          </div>
+          < StampCard stamp_card={stamp_card} deal={deal} id={id}  />
+          < StampCardForm updateCode={this.updateCode} stamp_card={stamp_card} deal={deal} store={deal.store}/>
+
+          {/* go back to previous page */}
+          <button onClick={this.props.history.goBack}>Go Back</button>
+
+
         </div>
-        {/* end card */}
+      )
+    }
 
-        {/* go back to previous page */}
-        <button onClick={this.props.history.goBack}>Go Back</button>
 
-        {/* check the code */}
-        {this.confirmedCode(id)}
 
-      </div>
-    )
+
+
   }
 }
 

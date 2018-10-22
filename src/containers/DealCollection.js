@@ -12,7 +12,7 @@ const DealCollection = (props) => {
 
   return (
     <div>
-      <h1>Deals</h1>
+      <h1>Deals for {store.name}</h1>
       {renderDeals}
       <button onClick={props.history.goBack}>Go Back</button>
     </div>
