@@ -54,7 +54,7 @@ class StampCardConfirmation extends Component{
                   store: deal.store
                 }
     }
-    if (this.props.stamp_cards === null || !deal) {
+    if (this.props.stamp_cards === null || !deal || !deal.store ||!stamp_card) {
       return <div>Loading...</div>
     }
     else{

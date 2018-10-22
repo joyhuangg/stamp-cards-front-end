@@ -114,14 +114,11 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       let i = newStampCards.findIndex((st) => st.id === id)
-      newStampCards[i].current_points++
-      // idx = i
-    })
-    .then(r => {
-      this.setState({stamp_cards: newStampCards})
-      this.props.history.push(`/stamp_cards/${id}`)
+      ++newStampCards[i].current_points
+      this.setState({stamp_cards: newStampCards}, () => {this.props.history.push(`/stamp_cards/${id}`)})
       //redirect to show page here?
-      }).catch((error) => { console.log(error)} )
+    })
+    .catch((error) => { console.log(error)} )
   }
 
 

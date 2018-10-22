@@ -3,10 +3,10 @@ import StampCard from '../components/StampCard'
 
 class StampCardCollection extends Component{
   render(){
-    const renderStampCard = this.props.stamp_cards.map(st => <StampCard key={st.id} stamp_card={st} deal={st.deal} />)
+    const stampCards = this.props.stamp_cards.map((stamp_card) => <StampCard key={stamp_card.id} deal={stamp_card.deal} stamp_card={stamp_card}/>)
     return(
       <div>
-        {renderStampCard}
+        {stampCards}
       </div>
     )
   }
