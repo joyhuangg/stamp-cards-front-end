@@ -6,7 +6,7 @@ class StoreDetail extends Component{
     const id = parseInt(this.props.match.params.id)
     const store = this.props.stores.find((store) => store.id === id)
     return(
-      <div className="store-detail">
+      <div>
         {store && this.props.deals ? < DealCollection deals={this.props.deals} store={store}/> : null }
       </div>
     )

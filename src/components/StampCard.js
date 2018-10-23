@@ -5,7 +5,7 @@ class StampCard extends Component{
 
   render(){
     return(
-    <div>
+    <div className="stamp_card">
       {/* start card */}
       <div className="ui card">
         <div className="content">

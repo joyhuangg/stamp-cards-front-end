@@ -35,7 +35,7 @@
 } */
 
 .container-page {
-  background-image: url("https://images.unsplash.com/photo-1485217939211-45a6241d40a6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=61a0b49be925ede4799062416a4553bb&auto=format&fit=crop&w=1051&q=80");
+  background-image: url("https://images.unsplash.com/photo-1526320527171-0545006ae903?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e23be23672194781a4f19b16d1aff3bb&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -53,8 +53,6 @@
   text-align: center;
   padding: 0 200px;
 }
-
-
 
 /* ======= STORE CARD ======= */
 
@@ -80,7 +78,7 @@
 
 .thumbnail {
   display: block;
-  width: 100%;
+  /* width: 100%; */
 	object-fit: cover;
   border-right: 0.0625rem solid rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -99,6 +97,7 @@ img {
 }
 
 h4 {
+  color: #ffb53d;
   display: inline-block;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -134,3 +133,28 @@ h1 {
 }
 
 /* ====== DEAL CARD ========= */
+
+.deal-style {
+  font-size: 2em !important;
+  margin-top: 60px !important;
+  border: none;
+}
+
+.deal-card {
+  margin-top: 150px;
+}
+
+.stamp_card {
+  margin: 50px 90px;
+}
+
+.ui.card:last-child {
+  margin: 0 auto;
+}
+
+/* @media only screen and (min-width: 800px) {
+  img {
+    width: 50px;
+    height: 50px;
+  }
+} */
