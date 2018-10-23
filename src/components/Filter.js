@@ -12,7 +12,7 @@ class Filter extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search">
         <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} />
       </div>
     )
