@@ -13,12 +13,12 @@ class Login extends React.Component{
   }
 
   login = (username, password) => {
-    debugger
     fetch("http://localhost:3000/login",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
         username,
