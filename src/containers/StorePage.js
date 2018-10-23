@@ -8,13 +8,23 @@ class StorePage extends Component{
   render(){
     if (!!this.props.currentUser.id){
       const stores = this.props.renderStores()
-      return(
-        <div>
-          <Filter stores={stores} handleSearch={this.props.handleSearch}/>
+      if (stores.length > 0){
+        return(
+          <div>
+            <Filter stores={stores} handleSearch={this.props.handleSearch}/>
 
-          <StoreCollection stores={stores} />
-        </div>
-      )
+            <StoreCollection stores={stores} />
+          </div>
+        )
+      }
+      else{
+        return(
+          <div>
+            GET STAMP CARDS BY VISITING STORES
+          </div>
+        )
+      }
+
     }
     else{
       return(

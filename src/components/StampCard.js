@@ -8,8 +8,6 @@ class StampCard extends Component{
       {/* start card */}
       <div className="ui card">
         <div className="content">
-          <i className="right floated like icon"></i>
-          <i className="right floated star icon"></i>
           <div className="header">{this.props.stamp_card.store.name}</div>
           <div className="description">
             <div><p>Deal Description: {this.props.stamp_card.deal.category}</p></div>
@@ -17,6 +15,38 @@ class StampCard extends Component{
           </div>
         </div>
         <div className="extra content">
+
+          {/* grid? */}
+          <div class="ui grid">
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui segment">
+              </div>
+            </div>
+          </div>
+
+
+
+
           <span className="left floated like">
             <i className="like icon"></i>
             Like

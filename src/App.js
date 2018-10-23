@@ -228,7 +228,7 @@ class App extends Component {
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> < StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />
-          <Route exact path="/stamp_cards" render={()=> < StampCardPage stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />
+          <Route exact path="/stamp_cards" render={()=> < StampCardPage stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
 
       </header>
       </div>

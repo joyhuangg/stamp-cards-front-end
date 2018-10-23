@@ -45,19 +45,23 @@ class Login extends React.Component{
     this.login(this.state.username, this.state.password)
   }
   render(){
-    return(
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Field>
-          <label>Username</label>
-          <input placeholder='Username' name="username" onChange={this.handleChange}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
-        </Form.Field>
-        <Button type='submit'>Submit</Button>
-      </Form>
-    )
+    if (this.state.error){
+      alert("Invalid Login")
+    }else{
+      return(
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Field>
+            <label>Username</label>
+            <input placeholder='Username' name="username" onChange={this.handleChange}/>
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <input type="password" placeholder='Password' name="password" onChange={this.handleChange}/>
+          </Form.Field>
+          <Button type='submit'>Submit</Button>
+        </Form>
+      )
+    }
   }
 }
 
