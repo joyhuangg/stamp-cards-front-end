@@ -33,13 +33,9 @@ class NavBar extends Component{
                           </Dropdown.Menu>
                         </Dropdown>): null}
             <Menu.Item><Link to='/'>Home</Link></Menu.Item>
-            {/* <Menu.Item><Link to="/stamp_cards">See Stamp Cards</Link></Menu.Item> */}
 
             {loggedIn ? null : <Menu.Item><Link to="/login">Login</Link></Menu.Item>}
-
-            {/* <Menu.Item><Link to="/login">Login</Link></Menu.Item> */}
             {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
-            {/* <Menu.Item><Link to="/">LogOut</Link></Menu.Item> */}
 
 
 

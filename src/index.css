@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+div.store-page{
+  background-image: url("https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&h=350");
+  background-size:contain;
+}
+
+div.ui.search{
+  margin: 20px;
+}
+
+div.store-detail{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQseIT07PkQ9E0wHiVtKppoZ29gH7KpKSX-BHZ4VxYqXuiNze5y");
+  background-repeat: no-repeat;
+
+}

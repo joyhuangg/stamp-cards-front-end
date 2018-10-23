@@ -7,7 +7,7 @@ const DealCard = (props) => {
 
   return (
     <Link to={`/stamp_card_confirmation/${deal.id}`}>
-      <div className="ui card">
+      <div className="ui card store-card">
         <div className="content">
           <div className="header">
             {deal.category}

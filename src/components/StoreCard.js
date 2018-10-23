@@ -14,7 +14,7 @@ class StoreCard extends Component{
             </div>
             <div className="right">
               <h4>{this.props.store.name}</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et  </p>
+              <p>{this.props.store.description}</p>
               <p className="web-link">abc.com</p>
             </div>
           </div>

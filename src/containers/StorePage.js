@@ -10,7 +10,8 @@ class StorePage extends Component{
     if (!!this.props.currentUser.id){
       if (this.props.stores.length > 0){
         return(
-          <div>
+
+          <div className="store-page">
             <Filter stores={this.props.stores} handleSearch={this.props.handleSearch}/>
 
             <StoreCollection stores={this.props.stores} />

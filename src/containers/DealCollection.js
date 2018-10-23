@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import DealCard from '../components/DealCard'
 import { withRouter } from "react-router-dom"
+import { Image, List } from 'semantic-ui-react'
 
 const DealCollection = (props) => {
   const {deals, store} = props
@@ -11,9 +12,11 @@ const DealCollection = (props) => {
 
 
   return (
-    <div>
+    <div className="deal-collection">
       <h1>Deals for {store.name}</h1>
+      <List celled>
       {renderDeals}
+      </List>
       <button onClick={props.history.goBack}>Go Back</button>
     </div>
   )
