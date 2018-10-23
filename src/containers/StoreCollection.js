@@ -11,7 +11,7 @@ class StoreCollection extends Component{
 
     return(
       <div>
-        <h1>Stores</h1>
+        <h1>Best Stores in Town</h1>
         <List celled>
           {stores}
         </List>

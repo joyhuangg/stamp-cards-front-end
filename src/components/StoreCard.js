@@ -1,18 +1,25 @@
 import React, {Component} from 'react'
-import { Image, List } from 'semantic-ui-react'
+import { Image, List, Grid, Divider } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 class StoreCard extends Component{
   render(){
     return(
-      <Link to={`/stores/${this.props.store.id}`}>
-        <List.Item >
-          <Image avatar src={this.props.store.icon_url} />
-          <List.Content>
-            <List.Header>{this.props.store.name}</List.Header>
-          </List.Content>
-        </List.Item>
-    </Link>
+
+      <div className="container-store">
+        <Link to={`/stores/${this.props.store.id}`}>
+          <div className="store-card">
+            <div className="thumbnail">
+              <img className="left" src={this.props.store.icon_url} alt={this.props.store.name} />
+            </div>
+            <div className="right">
+              <h4>{this.props.store.name}</h4>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et  </p>
+              <p className="web-link">abc.com</p>
+            </div>
+          </div>
+        </Link>
+      </div>
     )
   }
 }
