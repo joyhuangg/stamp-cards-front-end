@@ -56,6 +56,7 @@ class App extends Component {
     const currentUser = {currentUser:resp.customer};
     localStorage.setItem("token", resp.token);
     this.setState({auth: currentUser})
+    
     console.log("LOGGED IN")
   }
 

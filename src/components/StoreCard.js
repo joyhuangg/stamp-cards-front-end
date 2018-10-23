@@ -7,7 +7,7 @@ class StoreCard extends Component{
     return(
       <Link to={`/stores/${this.props.store.id}`}>
         <List.Item >
-          <Image avatar src='/images/avatar/small/helen.jpg' />
+          <Image avatar src={this.props.store.icon_url} />
           <List.Content>
             <List.Header>{this.props.store.name}</List.Header>
           </List.Content>
