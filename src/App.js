@@ -53,7 +53,6 @@ class App extends Component {
   }
 
   handleLogin = (resp) => {
-    debugger
     const currentUser = {currentUser:resp};
     localStorage.setItem("token", resp.token);
     this.setState({auth: currentUser})

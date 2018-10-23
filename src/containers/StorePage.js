@@ -6,13 +6,23 @@ class StorePage extends Component{
 //needs conditional, if store is already linked to customer by stampcard, then we generate th StampCardConfirmation
 //page else we generate the deals page
   render(){
-    return(
-      <div>
-        <Filter stores={this.props.stores} handleSearch={this.props.handleSearch}/>
+    if (this.props.stores){
+      return(
+        <div>
+          <Filter stores={this.props.stores} handleSearch={this.props.handleSearch}/>
 
-        <StoreCollection stores={this.props.stores} />
-      </div>
-    )
+          <StoreCollection stores={this.props.stores} />
+        </div>
+      )
+    }
+    else{
+      return(
+        <div>
+          Loading...
+        </div>
+      )
+    }
+
   }
 
 

@@ -25,17 +25,20 @@ class NavBar extends Component{
       <div>
         <Menu fixed='top' inverted>
           <Container>
-            <Menu.Item as='a' header>
-              {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
-              Project Name
-            </Menu.Item>
+            {loggedIn ? ( <Menu.Item as='a' header>
+                          {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
+                          Logged in
+                        </Menu.Item>): ( <Menu.Item as='a' header>
+                                      {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
+                                      Project Name
+                                    </Menu.Item>)}
             <Menu.Item><Link to='/'>Home</Link></Menu.Item>
             <Menu.Item><Link to="/stamp_cards">See Stamp Cards</Link></Menu.Item>
             <Menu.Item>
             {loggedIn ? (<Link to="/login" onClick={this.props.handleLogout}>Logout</Link>) : <Link to="/login">Login</Link>}
             </Menu.Item>
             {/* <Menu.Item><Link to="/login">Login</Link></Menu.Item> */}
-            <Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>
+            {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
             {/* <Menu.Item><Link to="/">LogOut</Link></Menu.Item> */}
 
 
