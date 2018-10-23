@@ -8,9 +8,9 @@ class StorePage extends Component{
   render(){
     return(
       <div>
-        < Filter stores={this.props.stores}/>
+        <Filter stores={this.props.stores} handleSearch={this.props.handleSearch}/>
 
-        < StoreCollection stores={this.props.stores} />
+        <StoreCollection stores={this.props.stores} />
       </div>
     )
   }
