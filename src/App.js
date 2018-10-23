@@ -56,7 +56,7 @@ class App extends Component {
     const currentUser = {currentUser:resp.customer};
     localStorage.setItem("token", resp.token);
     this.setState({auth: currentUser})
-    
+
     console.log("LOGGED IN")
   }
 
@@ -223,7 +223,7 @@ class App extends Component {
           <Route exact path="/" render={()=> < Home />} />
           <Route exact path="/login" render={()=> < Login  handleLogin={this.handleLogin}/>} />
           <Route exact path="/signup" render={()=> < SignUp handleSignUpSubmit={this.handleSignUpSubmit}/>} />
-          <Route exact path="/stores" render={()=> < StorePage stores={this.renderStores()} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
+          <Route exact path="/stores" render={()=> < StorePage renderStores={this.renderStores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
 
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
