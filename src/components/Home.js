@@ -4,7 +4,7 @@ class Home extends Component{
   render(){
     return(
       <div>
-        WELCOME TO STAMPCARDS ONLINE
+        GO STAMP!
       </div>
     )
   }

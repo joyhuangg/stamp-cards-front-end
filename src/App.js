@@ -47,7 +47,6 @@ class App extends Component {
 
 
   componentDidMount(){
-    // Promise.all
     const token = localStorage.getItem("token")
     if (!!token){
       Promise.all([this.getCurrentUser(token), this.fetchStores(), this.getDeals(),this.getStampCards()])
@@ -156,9 +155,8 @@ class App extends Component {
     }
       //else if not a match
     else{
-      //alert "Employee Verification Incorrect"
       alert("Employee Verification Incorrect. Try again.")
-      //redirect to stampcardconfirmation page
+      //stay on stampcardconfirmation page
     }
   }
 

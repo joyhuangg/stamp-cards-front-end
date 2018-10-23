@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import StampCard from '../components/StampCard'
+import {Link} from 'react-router-dom'
 
 class StampCardDetail extends Component{
 
@@ -9,6 +10,7 @@ class StampCardDetail extends Component{
     return(
       <div>
         {stampCard ? < StampCard stamp_card={stampCard}  id={id}  /> : null }
+        <Link to='/stamp_cards'>See All Stampcards</Link>
       </div>
     )
   }
