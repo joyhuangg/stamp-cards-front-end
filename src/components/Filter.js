@@ -12,7 +12,11 @@ class Filter extends Component {
 
   render() {
     return (
-        <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search for Places"/>
+
+      <div className="search">
+        <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} />
+      </div>
+
     )
   }
 }

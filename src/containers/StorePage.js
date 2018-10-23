@@ -11,7 +11,7 @@ class StorePage extends Component{
       if (this.props.stores.length > 0){
         return(
 
-          <div className="store-page">
+          <div className="container-page">
             <Filter stores={this.props.stores} handleSearch={this.props.handleSearch}/>
 
             <StoreCollection stores={this.props.stores} />

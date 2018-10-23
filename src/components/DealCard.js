@@ -12,8 +12,11 @@ const DealCard = (props) => {
           <div className="header">
             {deal.category}
           </div>
-          <div className="description">
-            <p>{deal.description}</p>
+          {/* <div className="description"> */}
+            {/* <p>{deal.description}</p> */}
+          {/* </div> */}
+          <div>
+            <img src={deal.background_url} alt=""/>
           </div>
         </div>
       </div>

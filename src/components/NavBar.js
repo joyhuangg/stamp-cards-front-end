@@ -32,7 +32,6 @@ class NavBar extends Component{
                             <Dropdown.Item as={Link} to="/login" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>): null}
-            <Menu.Item><Link to='/'>Home</Link></Menu.Item>
 
             {loggedIn ? null : <Menu.Item><Link to="/login">Login</Link></Menu.Item>}
             {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
