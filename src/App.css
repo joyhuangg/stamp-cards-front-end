@@ -54,6 +54,32 @@
   padding: 0 200px;
 }
 
+.align-center {
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  top: 100px;
+  width: 100%;
+  text-align: center;
+  padding: 0 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stamp-card-grid{
+  display: flex;
+  flex-wrap: wrap;
+  top: 100px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  justify-content: center;
+}
+
+
 
 
 /* ======= STORE CARD ======= */

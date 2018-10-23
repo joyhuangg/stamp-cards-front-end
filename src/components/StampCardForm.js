@@ -7,7 +7,7 @@ const StampCardForm = (props) => {
     <div>
       <form onSubmit={(e) => props.updateCode(e, props)}>
         <label htmlFor="code">Enter Store Code</label>
-        <input type="text" id="code" name="code"/>
+        <input type="password" id="code" name="code"/>
         <input type="submit"/>
       </form>
     </div>
