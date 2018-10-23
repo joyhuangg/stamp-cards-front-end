@@ -30,15 +30,19 @@ class App extends Component {
     stores: [],
     deals: [],
     stamp_cards: [],
-    searchTerm: ''
+    searchTerm: '',
+    allStores: [],
   }
 
   handleSearch = (e, value) => {
-    this.setState({searchTerm: value})
-    let newStores = [...this.state.stores]
-    const re = new RegExp(_.escapeRegExp(this.state.searchTerm), 'i')
-    let filteredStores = newStores.filter(store => re.test(store.name))
-    this.setState({stores: filteredStores})
+    this.setState({searchTerm: value}, () => {
+      let newStores = [...this.state.allStores]
+      const re = new RegExp(_.escapeRegExp(this.state.searchTerm), 'i')
+      let filteredStores
+      this.state.searchTerm ? filteredStores = newStores.filter(store => re.test(store.name)) : filteredStores = this.state.allStores
+      this.setState({stores: filteredStores})
+    })
+
   }
 
 
@@ -88,7 +92,7 @@ class App extends Component {
       }
     })
       .then(res => res.json())
-      .then(json => this.setState({stores: json}))
+      .then(json => this.setState({stores: json, allStores: json}))
   }
 
   getDeals = () => {
