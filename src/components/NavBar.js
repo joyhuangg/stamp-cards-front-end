@@ -25,37 +25,24 @@ class NavBar extends Component{
       <div>
         <Menu fixed='top' inverted>
           <Container>
-            {loggedIn ? ( <Menu.Item as='a' header>
-                          {/* <Image size='mini' src='/logo.png' style={{ marginRight: '1.5em' }} /> */}
-                          <Link to='/stores'>All Stores</Link>
-                        </Menu.Item>): null}
+            {loggedIn ?  (<Dropdown item simple inverted text='Menu'>
+                          <Dropdown.Menu >
+                            <Dropdown.Item as={Link} to='/stores'>All Stores</Dropdown.Item>
+                            <Dropdown.Item  as={Link}  to="/stamp_cards">See Stamp Cards</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>): null}
             <Menu.Item><Link to='/'>Home</Link></Menu.Item>
-            <Menu.Item><Link to="/stamp_cards">See Stamp Cards</Link></Menu.Item>
+            {/* <Menu.Item><Link to="/stamp_cards">See Stamp Cards</Link></Menu.Item> */}
             <Menu.Item>
-            {loggedIn ? (<Link to="/login" onClick={this.props.handleLogout}>Logout</Link>) : <Link to="/login">Login</Link>}
+            {loggedIn ? null : <Link to="/login">Login</Link>}
             </Menu.Item>
             {/* <Menu.Item><Link to="/login">Login</Link></Menu.Item> */}
             {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
             {/* <Menu.Item><Link to="/">LogOut</Link></Menu.Item> */}
 
 
-            <Dropdown item simple text='Dropdown'>
-              <Dropdown.Menu>
-                <Dropdown.Item>List Item</Dropdown.Item>
-                <Dropdown.Item>List Item</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Header>Header Item</Dropdown.Header>
-                <Dropdown.Item>
-                  <i className='dropdown icon' />
-                  <span className='text'>Submenu</span>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown.Item>
-                <Dropdown.Item>List Item</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+
           </Container>
         </Menu>
       </div>
