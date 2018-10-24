@@ -14,6 +14,7 @@ class StampCardDetail extends Component{
 
 
           <div className="stamp-collection">
+            {/* <h1> Your Updated StampCard </h1> */}
             {stampCard ? <StampCard stamp_card={stampCard} id={id} /> : null }
           </div>
 

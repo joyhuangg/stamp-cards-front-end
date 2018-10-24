@@ -3,6 +3,7 @@ import './App.css';
 import './Navbar.css';
 import NavBar from './components/NavBar'
 import Home from './containers/Home'
+import Redeem from './containers/Redeem'
 import StorePage from './containers/StorePage'
 import StampCardConfirmation from './containers/StampCardConfirmation'
 import StoreDetail from './components/StoreDetail'
@@ -84,6 +85,28 @@ class App extends Component {
     console.log("SIGNED UP")
   }
 
+  deleteStampCard = (id) => {
+    fetch(`http://localhost:3000/stamp_cards/${id}`,{
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.getItem("token")
+
+      }
+    })
+  }
+
+  handleRedemption = (e, stampcard) => {
+
+    let i = this.state.stamp_cards.indexOf(stampcard)
+    let newStampCards = [...this.state.stamp_cards]
+    debugger
+    newStampCards.splice(i, 1)
+    this.deleteStampCard(stampcard.id);
+    this.setState({stamp_cards: newStampCards}, () => this.props.history.push(`/stamp_cards/`))
+  }
+
   // Get all stores
   fetchStores = () => {
     fetch("http://localhost:3000/stores", {
@@ -121,6 +144,7 @@ class App extends Component {
     })
   }
 
+//need to filter for only user's stampcards
   getStampCards = () => {
     fetch('http://localhost:3000/stamp_cards', {
       headers: {
@@ -226,7 +250,7 @@ class App extends Component {
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => <StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} currentUser={this.state.auth.currentUser} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> <StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards} currentUser={this.state.auth.currentUser}  deals={this.state.deals} />} />
           <Route exact path="/stamp_cards" render={()=> <StampCardCollection stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
-
+          <Route exact path="/redeem/:id" render={(routerProps) => <Redeem {...routerProps} handleRedemption={this.handleRedemption} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} currentUser={this.state.auth.currentUser} deals={this.state.deals}/>}/>
 
         </div>
     );
