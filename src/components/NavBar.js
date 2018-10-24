@@ -32,7 +32,7 @@ class NavBar extends Component{
       <div>
 
 
-        <Link to="/stores" class="logo">Go Stamp!</Link>
+        <Link to="" class="logo">Go Stamp!</Link>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label className="menu-icon" for="menu-btn"><span className="navicon"></span></label>
         <ul className="menu">
