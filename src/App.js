@@ -5,7 +5,7 @@ import StorePage from './containers/StorePage'
 import StampCardConfirmation from './containers/StampCardConfirmation'
 import StoreDetail from './components/StoreDetail'
 import StampCardDetail from './components/StampCardDetail'
-import StampCardPage from './containers/StampCardPage'
+import StampCardCollection from './containers/StampCardCollection'
 import DealCollection from './containers/DealCollection'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
@@ -228,7 +228,7 @@ class App extends Component {
           <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> < StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />
-          <Route exact path="/stamp_cards" render={()=> < StampCardPage stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
+          <Route exact path="/stamp_cards" render={()=> < StampCardCollection stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
         </div>
 
         </div>

@@ -60,12 +60,12 @@ class StampCardConfirmation extends Component{
     }
     else{
       return(
-        <div className="align-center">
+        <div>
 
           <h1>Enter Store Code:</h1>
+          <StampCard stamp_card={stamp_card} deal={deal} id={id} />
 
-          < StampCard stamp_card={stamp_card} deal={deal} id={id}  />
-          < StampCardForm updateCode={this.updateCode} stamp_card={stamp_card} deal={deal} store={deal.store}/>
+          <StampCardForm updateCode={this.updateCode} stamp_card={stamp_card} deal={deal} store={deal.store}/>
 
           {/* go back to previous page */}
           <button onClick={this.props.history.goBack}>Go Back</button>

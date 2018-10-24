@@ -6,21 +6,21 @@ const DealCard = (props) => {
   const {deal} = props
 
   return (
-    <Link to={`/stamp_card_confirmation/${deal.id}`}>
-      <div className="ui card store-card">
-        <div className="content">
-          <div className="header">
-            {deal.category}
+
+    <div className="container-store">
+      <Link to={`/stamp_card_confirmation/${deal.id}`}>
+        <div className="store-card">
+          <div className="thumbnail">
+            <img className="left" src={deal.background_url} alt={deal.category}/>
           </div>
-          {/* <div className="description"> */}
-            {/* <p>{deal.description}</p> */}
-          {/* </div> */}
-          <div>
-            <img src={deal.background_url} alt=""/>
+          <div className="right">
+            <h4 className="deal-style">{deal.category}</h4>
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
+
+
 
   )
 }
