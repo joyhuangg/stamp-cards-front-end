@@ -13,7 +13,7 @@ class Login extends React.Component{
   }
 
   login = (username, password) => {
-    fetch("https://aqueous-mesa-59734.herokuapp.com/login",{
+    fetch("https://go-stamp-card-api.herokuapp.com/login",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
