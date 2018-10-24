@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './Navbar.css';
 import NavBar from './components/NavBar'
 import StorePage from './containers/StorePage'
 import StampCardConfirmation from './containers/StampCardConfirmation'

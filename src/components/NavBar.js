@@ -34,7 +34,7 @@ class NavBar extends Component{
           <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li></div>)
           : null}
           {loggedIn ? null : <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li>}
-          {!loggedIn ? (<li><Link to="/singup">Sign Up</Link></li>) : null}
+          {!loggedIn ? <li><Link to="/signup">Sign Up</Link></li> : null}
         </ul>
 
 
