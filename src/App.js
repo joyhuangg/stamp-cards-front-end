@@ -215,21 +215,18 @@ class App extends Component {
           </div>
           {/* need to break because they keep overlapping */}
           <div className="fix-form">
-            <Route exact path="/" render={()=> < Login handleLogin={this.handleLogin} />} />
-            <Route exact path="/login" render={()=> < Login  handleLogin={this.handleLogin}/>} />
-            <Route exact path="/signup" render={()=> < SignUp handleSignUpSubmit={this.handleSignUpSubmit}/>} />
+            <Route exact path="/" render={()=> <Login handleLogin={this.handleLogin} />} />
+            <Route exact path="/login" render={()=> <Login  handleLogin={this.handleLogin}/>} />
+            <Route exact path="/signup" render={()=> <SignUp handleSignUpSubmit={this.handleSignUpSubmit}/>} />
           </div>
 
+          <Route exact path="/stores" render={()=> <StorePage stores={this.state.stores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
 
-          <div>
+          <Route exact path="/stores/:id" render={(routerProps) => <StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
+          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => <StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
+          <Route exact path="/stamp_cards/:id" render={(routerProps)=> <StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />
+          <Route exact path="/stamp_cards" render={()=> <StampCardCollection stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
 
-          <Route exact path="/stores" render={()=> < StorePage stores={this.state.stores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
-
-          <Route exact path="/stores/:id" render={(routerProps) => < StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores}/> } />
-          <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => < StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} deals={this.state.deals}/>}/>
-          <Route exact path="/stamp_cards/:id" render={(routerProps)=> < StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards}  deals={this.state.deals} />} />
-          <Route exact path="/stamp_cards" render={()=> < StampCardCollection stamp_cards={this.state.stamp_cards}  deals={this.state.deals} currentUser={this.state.auth.currentUser}/>} />
-        </div>
 
         </div>
     );

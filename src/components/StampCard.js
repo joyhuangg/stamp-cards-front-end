@@ -5,9 +5,9 @@ class StampCard extends Component{
 
   render(){
     return(
-    <div className="stamp_card">
+    <div className="each-stampcard">
       {/* start card */}
-      <div className=" stamp_card ui raised red card center">
+      <div className="ui raised red card center">
         <div className="content">
           <div className="header">
             <span className="left floated">
@@ -23,11 +23,10 @@ class StampCard extends Component{
             <div><p>Deal: {this.props.stamp_card.deal.category}</p></div>
           </div>
         </div>
-        <div className="extra content">
 
+        <div className="extra content">
           {/* grid? */}
           <div className="ui grid">
-
             <div className="three column row">
               <div className="column">
                   {this.props.stamp_card.current_points > 0 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular "></i>)}

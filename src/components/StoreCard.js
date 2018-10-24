@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Image, List, Grid, Divider } from 'semantic-ui-react'
+// import { Image, List, Grid, Divider } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
 class StoreCard extends Component{

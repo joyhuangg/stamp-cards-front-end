@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import StoreCard from '../components/StoreCard'
-import { Image, List } from 'semantic-ui-react'
+// import { Image, List } from 'semantic-ui-react'
 
 
 class StoreCollection extends Component{
@@ -12,9 +12,9 @@ class StoreCollection extends Component{
     return(
       <div>
         <h1>Best Stores in Town</h1>
-        <List celled>
+        {/* <List celled> */}
           {stores}
-        </List>
+        {/* </List> */}
       </div>
     )
   }
