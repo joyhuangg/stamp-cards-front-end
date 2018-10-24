@@ -71,7 +71,7 @@ class App extends Component {
 
   handleSignUpSubmit = (e, obj) => {
     this.setState({newUser: obj})
-    fetch("http://localhost:3000/customers",{
+    fetch("https://aqueous-mesa-59734.herokuapp.com/customers",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ class App extends Component {
   }
 
   deleteStampCard = (id) => {
-    fetch(`http://localhost:3000/stamp_cards/${id}`,{
+    fetch(`https://aqueous-mesa-59734.herokuapp.com/stamp_cards/${id}`,{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +109,7 @@ class App extends Component {
 
   // Get all stores
   fetchStores = () => {
-    fetch("http://localhost:3000/stores", {
+    fetch("https://aqueous-mesa-59734.herokuapp.com/stores", {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -119,7 +119,7 @@ class App extends Component {
   }
 
   getDeals = () => {
-    fetch('http://localhost:3000/deals', {
+    fetch('https://aqueous-mesa-59734.herokuapp.com/deals', {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -129,7 +129,7 @@ class App extends Component {
   }
 
   getCurrentUser = (token) => {
-    fetch('http://localhost:3000/current_user', {
+    fetch('https://aqueous-mesa-59734.herokuapp.com/current_user', {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -146,7 +146,7 @@ class App extends Component {
 
 //need to filter for only user's stampcards
   getStampCards = () => {
-    fetch('http://localhost:3000/stamp_cards', {
+    fetch('https://aqueous-mesa-59734.herokuapp.com/stamp_cards', {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -189,7 +189,7 @@ class App extends Component {
     let newStampCards = [...this.state.stamp_cards]
     let deal = this.state.deals.find(deal => deal.id === deal_id)
     let id
-    fetch('http://localhost:3000/stamp_cards', {
+    fetch('https://aqueous-mesa-59734.herokuapp.com/stamp_cards', {
       method: 'POST',
       headers: {"Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
@@ -216,7 +216,7 @@ class App extends Component {
   patchStampCard = (id, body) => {
     let newStampCards = [...this.state.stamp_cards]
     // let idx
-    fetch(`http://localhost:3000/stamp_cards/${id}`, {
+    fetch(`https://aqueous-mesa-59734.herokuapp.com/stamp_cards/${id}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
@@ -247,7 +247,7 @@ class App extends Component {
           <Route exact path="/stores" render={()=> <StorePage stores={this.state.stores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
 
           <Route exact path="/" component={Home} />
-          
+
           <Route exact path="/stores/:id" render={(routerProps) => <StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} currentUser={this.state.auth.currentUser}/>} />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => <StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} currentUser={this.state.auth.currentUser} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> <StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards} currentUser={this.state.auth.currentUser}  deals={this.state.deals} />} />
