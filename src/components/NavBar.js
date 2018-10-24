@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import { Menu, Segment } from 'semantic-ui-react'
 
@@ -19,7 +19,15 @@ class NavBar extends Component{
   // }
 
   render(){
-    const loggedIn = !!this.props.currentUser.id
+    let loggedIn
+
+    if (this.props.currentUser === undefined){
+      alert("Incorrect Password or Username")
+      loggedIn = false;
+    }else{
+      loggedIn = !!this.props.currentUser.id
+    }
+
     return(
       <div>
 
@@ -45,7 +53,7 @@ class NavBar extends Component{
                           <Dropdown.Menu >
                             <Dropdown.Item as={Link} to='/stores'>All Stores</Dropdown.Item>
                             <Dropdown.Item  as={Link}  to="/stamp_cards">See Stamp Cards</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/login" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>): null}
             {loggedIn ? null : <Menu.Item><Link to="/login">Login</Link></Menu.Item>}
@@ -57,4 +65,4 @@ class NavBar extends Component{
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

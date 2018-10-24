@@ -46,7 +46,9 @@ class Login extends React.Component{
   }
   render(){
     if (this.state.error){
-      alert("Invalid Login")
+      alert("Invalid Login Information")
+      this.props.history.push('/');
+      return null
     }else{
       return(
         <Form onSubmit={this.handleSubmit}>
