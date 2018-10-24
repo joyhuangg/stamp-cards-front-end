@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 
 class StoreDetail extends Component{
   render(){
-    if (!!this.props.currentUser.id){
+    if (!!localStorage.getItem("token")){
       const id = parseInt(this.props.match.params.id)
       const store = this.props.stores.find((store) => store.id === id)
       return(

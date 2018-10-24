@@ -40,26 +40,12 @@ class NavBar extends Component{
           <li><Link to="/stores">All Stores</Link></li>
           <li><Link to="/stamp_cards">See Stamp Cards</Link></li>
           <li><Link to="/" onClick={this.props.handleLogout}>Logout</Link></li></div>)
-          : null}
-          {loggedIn ? null : <li><Link to="/login" onClick={this.props.handleLogout}>Login</Link></li>}
-          {!loggedIn ? <li><Link to="/signup">Sign Up</Link></li> : null}
+          : (<div>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/signup">Sign Up</Link></li>
+            </div>)}
         </ul>
 
-
-
-        {/* <Menu fixed='top' inverted>
-          <Container>
-            {loggedIn ?  (<Dropdown item simple inverted text='Menu'>
-                          <Dropdown.Menu >
-                            <Dropdown.Item as={Link} to='/stores'>All Stores</Dropdown.Item>
-                            <Dropdown.Item  as={Link}  to="/stamp_cards">See Stamp Cards</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown>): null}
-            {loggedIn ? null : <Menu.Item><Link to="/login">Login</Link></Menu.Item>}
-            {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
-          </Container>
-        </Menu> */}
       </div>
     )
   }
