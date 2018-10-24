@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import {
   Container,
@@ -20,7 +20,15 @@ import {
 // Deals, Customers link on future Store's admin sign in
 class NavBar extends Component{
   render(){
-    const loggedIn = !!this.props.currentUser.id
+    let loggedIn
+
+    if (this.props.currentUser === undefined){
+      alert("Incorrect Password or Username")
+      loggedIn = false;
+    }else{
+      loggedIn = !!this.props.currentUser.id
+    }
+
     return(
       <div>
         <Menu fixed='top' inverted>
@@ -29,7 +37,7 @@ class NavBar extends Component{
                           <Dropdown.Menu >
                             <Dropdown.Item as={Link} to='/stores'>All Stores</Dropdown.Item>
                             <Dropdown.Item  as={Link}  to="/stamp_cards">See Stamp Cards</Dropdown.Item>
-                            <Dropdown.Item as={Link} to="/login" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
+                            <Dropdown.Item as={Link} to="/" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>): null}
 
@@ -45,4 +53,4 @@ class NavBar extends Component{
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

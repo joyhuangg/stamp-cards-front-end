@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import Filter from '../components/Filter'
 import StoreCollection from './StoreCollection'
+import {withRouter} from 'react-router-dom'
 
 class StorePage extends Component{
 //needs conditional, if store is already linked to customer by stampcard, then we generate th StampCardConfirmation
 //page else we generate the deals page
   render(){
-    // debugger
     if (!!this.props.currentUser.id){
       if (this.props.stores.length > 0){
         return(
@@ -28,11 +28,9 @@ class StorePage extends Component{
 
     }
     else{
-      return(
-        <div>
-          Loading...
-        </div>
-      )
+      alert("Please Login!")
+      this.props.history.push('/')
+      return null
     }
 
   }
@@ -40,4 +38,4 @@ class StorePage extends Component{
 
 }
 
-export default StorePage
+export default withRouter(StorePage)
