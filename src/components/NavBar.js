@@ -39,9 +39,9 @@ class NavBar extends Component{
           {loggedIn ? (<div>
           <li><Link to="/stores">All Stores</Link></li>
           <li><Link to="/stamp_cards">See Stamp Cards</Link></li>
-          <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li></div>)
+          <li><Link to="/" onClick={this.props.handleLogout}>Logout</Link></li></div>)
           : null}
-          {loggedIn ? null : <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li>}
+          {loggedIn ? null : <li><Link to="/login" onClick={this.props.handleLogout}>Login</Link></li>}
           {!loggedIn ? <li><Link to="/signup">Sign Up</Link></li> : null}
         </ul>
 

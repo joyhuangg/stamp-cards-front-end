@@ -176,9 +176,9 @@ h1 {
 } */
 
 
-.stamp_card {
+/* .stamp_card {
   margin: 10px;
-}
+} */
 
 /* ====== STAMP CARD ========= */
 
@@ -197,6 +197,8 @@ h1 {
   flex-flow: wrap;
   justify-content: space-around;
   align-content: space-evenly;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 
@@ -209,7 +211,8 @@ span {
 }
 
 .each-stampcard {
-  /* margin: 0 auto; */
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .link-stamp {
@@ -228,7 +231,7 @@ span {
   }
 
   .stamp-collection {
-    align-content: baseline;
+
   }
 }
 

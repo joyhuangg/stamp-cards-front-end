@@ -7,7 +7,7 @@ class StampCard extends Component{
     return(
     <div className="each-stampcard">
       {/* start card */}
-      <div className="ui raised red card center">
+      <div className="ui raised red card centered">
         <div className="content">
           <div className="header">
             <span className="left floated">
