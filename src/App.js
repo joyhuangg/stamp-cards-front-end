@@ -210,9 +210,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <div>
+          <header>
             < NavBar handleLogout={this.handleLogout} currentUser={this.state.auth.currentUser}/>
-          </div>
+          </header>
           {/* need to break because they keep overlapping */}
           <div className="fix-form">
             <Route exact path="/" render={()=> <Login handleLogin={this.handleLogin} />} />
