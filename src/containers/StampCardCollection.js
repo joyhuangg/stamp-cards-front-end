@@ -9,8 +9,8 @@ class StampCardCollection extends Component{
         <div>
           <h1>Stamp Card Collection</h1>
         </div>
-        <div className="ui three column divided grid">
-          {stampCards}
+        <div className="stamp-collection">
+            {stampCards}
         </div>
       </div>
     )
