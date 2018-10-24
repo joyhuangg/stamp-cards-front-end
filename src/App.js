@@ -211,10 +211,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <div>
+          <header>
             < NavBar handleLogout={this.handleLogout} currentUser={this.state.auth.currentUser}/>
-          </div>
-
+          </header>
           <div className="fix-form">
             <Route exact path="/login" render={()=> <Login  handleLogin={this.handleLogin}/>} />
             <Route exact path="/signup" render={()=> <SignUp handleSignUpSubmit={this.handleSignUpSubmit}/>} />

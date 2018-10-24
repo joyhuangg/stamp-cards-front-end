@@ -1,17 +1,7 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-import {
-  Container,
-  Divider,
-  Dropdown,
-  Grid,
-  Header,
-  Image,
-  List,
-  Menu,
-  Segment,
-} from 'semantic-ui-react'
+import { Menu, Segment } from 'semantic-ui-react'
 
 
 
@@ -19,6 +9,15 @@ import {
 // Stores, StampCards, LogOut Link on Customer's sign in
 // Deals, Customers link on future Store's admin sign in
 class NavBar extends Component{
+
+  state = {
+    height: 0
+  }
+
+  // toggleMenu = () => {
+  //   this.setState({showedMenu: !this.state.showedMenu})
+  // }
+
   render(){
     let loggedIn
 
@@ -31,7 +30,24 @@ class NavBar extends Component{
 
     return(
       <div>
-        <Menu fixed='top' inverted>
+
+
+        <a href="" class="logo">Go Stamp</a>
+        <input className="menu-btn" type="checkbox" id="menu-btn" />
+        <label className="menu-icon" for="menu-btn"><span className="navicon"></span></label>
+        <ul className="menu">
+          {loggedIn ? (<div>
+          <li><Link to="/stores">All Stores</Link></li>
+          <li><Link to="/stamp_cards">See Stamp Cards</Link></li>
+          <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li></div>)
+          : null}
+          {loggedIn ? null : <li><Link to="/login" onClick={this.props.handleLogout}>Logout</Link></li>}
+          {!loggedIn ? (<li><Link to="/singup">Sign Up</Link></li>) : null}
+        </ul>
+
+
+
+        {/* <Menu fixed='top' inverted>
           <Container>
             {loggedIn ?  (<Dropdown item simple inverted text='Menu'>
                           <Dropdown.Menu >
@@ -40,14 +56,10 @@ class NavBar extends Component{
                             <Dropdown.Item as={Link} to="/" onClick={this.props.handleLogout}>Logout</Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>): null}
-
             {loggedIn ? null : <Menu.Item><Link to="/login">Login</Link></Menu.Item>}
             {!loggedIn ? (<Menu.Item><Link to="/signup">Sign Up</Link></Menu.Item>) : null}
-
-
-
           </Container>
-        </Menu>
+        </Menu> */}
       </div>
     )
   }
