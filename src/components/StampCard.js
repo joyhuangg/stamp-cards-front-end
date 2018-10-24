@@ -7,7 +7,7 @@ class StampCard extends Component{
     return(
     <div className="each-stampcard">
       {/* start card */}
-      <div className="ui card">
+      <div className="ui raised red card center">
         <div className="content">
           <div className="header">
             <span className="left floated">
@@ -29,37 +29,25 @@ class StampCard extends Component{
           <div className="ui grid">
             <div className="three column row">
               <div className="column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 0 ? (<i className="star icon circular teal"></i>) : (<i className="circle blank icon circular "></i>)}
-                </div>
+                  {this.props.stamp_card.current_points > 0 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular "></i>)}
               </div>
               <div className="column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 1 ? (<i className="star icon circular teal"></i>) : (<i className="circle blank icon circular "></i>)}
-                </div>
+                {this.props.stamp_card.current_points > 1 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular "></i>)}
               </div>
               <div className="column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 2 ? (<i className="star icon circular teal"></i>) : (<i className="circle blank icon circular"></i>)}
-                </div>
+                {this.props.stamp_card.current_points > 2 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular"></i>)}
               </div>
             </div>
 
             <div className="three column row">
               <div className="column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 3 ? (<i className="star icon circular teal"></i>) : (<i className="circle blank icon circular "></i>)}
-                </div>
+                {this.props.stamp_card.current_points > 3 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular "></i>)}
               </div>
               <div className=" column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 4 ? (<i className="star icon circular teal"></i> ): (<i className="circle blank icon circular "></i>)}
-                </div>
+                {this.props.stamp_card.current_points > 4 ? (<i className="star big icon circular red"></i> ): (<i className="circle big blank icon circular "></i>)}
               </div>
               <div className=" column">
-                <div className="ui segment">
-                  {this.props.stamp_card.current_points > 5 ? (<i className="star icon circular teal"></i>) : (<i className="circle blank icon circular "></i>)}
-                </div>
+                {this.props.stamp_card.current_points > 5 ? (<i className="star big icon circular red"></i>) : (<i className="circle big blank icon circular "></i>)}
               </div>
             </div>
           </div>

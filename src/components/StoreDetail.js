@@ -7,7 +7,10 @@ class StoreDetail extends Component{
     const store = this.props.stores.find((store) => store.id === id)
     return(
       <div>
+
+        {store && this.props.deals ? <h1>{store.name}'s Deals'</h1> : null }
         {store && this.props.deals ? < DealCollection deals={this.props.deals} store={store}/> : null }
+
       </div>
     )
   }

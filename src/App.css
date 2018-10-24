@@ -69,6 +69,66 @@ body {
   padding: 0 200px;
 }
 
+
+.align-center {
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding: 0 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: url("https://www.desktopbackground.org/p/2015/05/15/948538_hd-simple-minimalist-minimal-wallpapers-full-size-hirewallpapers-8388_2560x1600_h.png");
+  background-size: cover;
+  background-position: center;
+}
+.align-center-collection{
+  position: absolute;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding: 0 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://nothymetowastedotorg.files.wordpress.com/2015/10/distressed-wood-background-21.jpg");
+  background-size: cover;
+  background-position: center;
+
+}
+
+.align-center-collection.h1{
+  font: black;
+}
+
+.stamp-card-grid{
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-image: url("https://nothymetowastedotorg.files.wordpress.com/2015/10/distressed-wood-background-21.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+
+
+
 /* ======= STORE CARD ======= */
 
 .container-store {
@@ -90,6 +150,12 @@ body {
   margin: 20px auto;
   opacity: 1;
 }
+
+/* #stamp-container{
+  background-image: url("http://wannapasta.com/wp-content/uploads/2017/03/pasta.jpg");
+  background-size: cover;
+  background-position: center;
+} */
 
 .thumbnail {
   display: block;
@@ -164,8 +230,13 @@ h1 {
   border: none;
 }
 
-.deal-card {
+/* .deal-card {
   margin-top: 150px;
+} */
+
+
+.stamp_card {
+  margin: 10px;
 }
 
 /* ====== STAMP CARD ========= */
@@ -186,6 +257,7 @@ h1 {
   justify-content: space-around;
   align-content: space-around;
 }
+
 
 .ui.card:last-child {
   margin: 0 auto;

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import StampCardForm from '../components/StampCardForm'
 import StampCard from '../components/StampCard'
 import { withRouter } from "react-router-dom"
+import { Container } from "semantic-ui-react"
 
 class StampCardConfirmation extends Component{
 
@@ -59,8 +60,10 @@ class StampCardConfirmation extends Component{
     }
     else{
       return(
+
         <div className="stamp_card">
           <h1 className="stamp-top">Enter Store Code:</h1>
+
           <StampCard stamp_card={stamp_card} deal={deal} id={id} />
 
           <StampCardForm updateCode={this.updateCode} stamp_card={stamp_card} deal={deal} store={deal.store}/>
