@@ -25,7 +25,7 @@ class StampCardConfirmation extends Component{
 
 
   render(){
-    if (!!this.props.currentUser.id){
+    if (!!localStorage.getItem("token")){
       const id = parseInt(this.props.match.params.id)
       let deal = this.props.deals.find((deal) => deal.id === id)
       let stamp_card = this.props.stamp_cards.find(st => st.deal_id === parseInt(this.props.match.params.id))

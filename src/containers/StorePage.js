@@ -7,7 +7,7 @@ class StorePage extends Component{
 //needs conditional, if store is already linked to customer by stampcard, then we generate th StampCardConfirmation
 //page else we generate the deals page
   render(){
-    if (!!this.props.currentUser.id){
+    if (!!localStorage.getItem("token")){
       if (this.props.stores.length > 0){
         return(
 

@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom'
 
 class StampCardCollection extends Component{
   render(){
-    if (!!this.props.currentUser.id){
+    if (!!localStorage.getItem("token")){
       const stampCards = this.props.stamp_cards.map((stamp_card) => <StampCard key={stamp_card.id} deal={stamp_card.deal} stamp_card={stamp_card}/>)
       return(
 
