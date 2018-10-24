@@ -11,10 +11,8 @@ class StoreCollection extends Component{
 
     return(
       <div>
-        <h1>Best Stores in Town</h1>
-        {/* <List celled> */}
+        {/* <h1 className="store-saying">Best Stores in Town</h1> */}
           {stores}
-        {/* </List> */}
       </div>
     )
   }
