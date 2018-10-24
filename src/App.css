@@ -223,16 +223,16 @@ span {
 
 /* ======= HOME ======= */
 .home-image {
-  width: 80%;
-  height: 80%;
+  width: 60%;
+  height: 60%;
 }
 
 .slick-slider .slick-track {
-  margin: 30px 10% 20px 10%;
+  margin: 10px 20% 0 20%;
 }
 
 .home-container {
-  padding-top: 130px;
+  padding-top: 80px;
 }
 
 
