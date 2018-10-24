@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 /* @import url("https://fonts.googleapis.com/css?family=Roboto:400,700"); */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 .App {
   text-align: center;
@@ -55,6 +57,7 @@ body {
   background-position: center;
   height: 100vh;
   overflow: scroll;
+  padding-top: 30px;
 }
 
 .search {
@@ -91,12 +94,6 @@ body {
   margin: 20px auto;
   opacity: 1;
 }
-
-/* #stamp-container{
-  background-image: url("http://wannapasta.com/wp-content/uploads/2017/03/pasta.jpg");
-  background-size: cover;
-  background-position: center;
-} */
 
 .thumbnail {
   display: block;
@@ -163,6 +160,10 @@ h1 {
   color: #000;
 }
 
+/* .store-saying {
+  background-color: #fff;
+} */
+
 /* ====== DEAL CARD ========= */
 
 .deal-style {
@@ -220,19 +221,32 @@ span {
   /* right: 50px; */
 }
 
+/* ======= HOME ======= */
+.home-image {
+  width: 80%;
+  height: 80%;
+}
+
+.slick-slider .slick-track {
+  margin: 30px 10% 20px 10%;
+}
+
+.home-container {
+  padding-top: 130px;
+}
+
+
+
 @media only screen and (max-width: 880px) {
   .ui.card:last-child {
     margin-bottom: 50px !important;
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
   }
 
-  .stamp-collection {
-
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -276,5 +290,10 @@ span {
   .right {
     margin-bottom: 20px;
   }
+
+  .fix-form {
+    width: 60%;
+  }
+
 
 }

@@ -245,7 +245,9 @@ class App extends Component {
           </div>
 
           <Route exact path="/stores" render={()=> <StorePage stores={this.state.stores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
+
           <Route exact path="/" component={Home} />
+          
           <Route exact path="/stores/:id" render={(routerProps) => <StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} currentUser={this.state.auth.currentUser}/>} />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => <StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} currentUser={this.state.auth.currentUser} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> <StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards} currentUser={this.state.auth.currentUser}  deals={this.state.deals} />} />
