@@ -101,7 +101,6 @@ class App extends Component {
 
     let i = this.state.stamp_cards.indexOf(stampcard)
     let newStampCards = [...this.state.stamp_cards]
-    debugger
     newStampCards.splice(i, 1)
     this.deleteStampCard(stampcard.id);
     this.setState({stamp_cards: newStampCards}, () => this.props.history.push(`/stamp_cards/`))
@@ -152,7 +151,12 @@ class App extends Component {
       }
     })
       .then(res => res.json())
-      .then(data => this.setState({stamp_cards: data}))
+      .then(data => {
+        let filteredData = data.filter(stamp_card => {
+          return stamp_card.customer_id === this.state.auth.currentUser.id
+        })
+        this.setState({stamp_cards: data})
+      })
   }
 
   verifyCode = (e, props) => {
@@ -195,7 +199,7 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
-        customer_id: 1,
+        customer_id: this.state.auth.current_user.id,
         deal_id: deal_id,
         deal: deal,
         current_points: 1
@@ -247,7 +251,7 @@ class App extends Component {
           <Route exact path="/stores" render={()=> <StorePage stores={this.state.stores} handleSearch={this.handleSearch} currentUser={this.state.auth.currentUser}/>}/>
 
           <Route exact path="/" component={Home} />
-          
+
           <Route exact path="/stores/:id" render={(routerProps) => <StoreDetail {...routerProps} deals={this.state.deals} stores={this.state.stores} currentUser={this.state.auth.currentUser}/>} />
           <Route exact path="/stamp_card_confirmation/:id" render={(routerProps) => <StampCardConfirmation {...routerProps} stamp_cards={this.state.stamp_cards} verifyCode={this.verifyCode} currentUser={this.state.auth.currentUser} deals={this.state.deals}/>}/>
           <Route exact path="/stamp_cards/:id" render={(routerProps)=> <StampCardDetail {...routerProps} stamp_cards={this.state.stamp_cards} currentUser={this.state.auth.currentUser}  deals={this.state.deals} />} />
