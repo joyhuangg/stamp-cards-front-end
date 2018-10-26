@@ -71,7 +71,7 @@ class App extends Component {
 
   handleSignUpSubmit = (e, obj) => {
     this.setState({newUser: obj})
-    fetch("http://localhost:3000/customers",{
+    fetch("https://go-stamp-card-api.herokuapp.com/customers",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ class App extends Component {
   }
 
   deleteStampCard = (id) => {
-    fetch(`http://localhost:3000/stamp_cards/${id}`,{
+    fetch(`https://go-stamp-card-api.herokuapp.com/stamp_cards/${id}`,{
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +108,7 @@ class App extends Component {
 
   // Get all stores
   fetchStores = () => {
-    fetch("http://localhost:3000/stores", {
+    fetch("https://go-stamp-card-api.herokuapp.com/stores", {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -118,7 +118,7 @@ class App extends Component {
   }
 
   getDeals = () => {
-    fetch('http://localhost:3000/deals', {
+    fetch('https://go-stamp-card-api.herokuapp.com/deals', {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -128,7 +128,7 @@ class App extends Component {
   }
 
   getCurrentUser = (token) => {
-    fetch('http://localhost:3000/current_user', {
+    fetch('https://go-stamp-card-api.herokuapp.com/current_user', {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -145,7 +145,7 @@ class App extends Component {
 
 //need to filter for only user's stampcards
   getStampCards = () => {
-    fetch('http://localhost:3000/stamp_cards', {
+    fetch('https://go-stamp-card-api.herokuapp.com/stamp_cards', {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -193,7 +193,7 @@ class App extends Component {
     let newStampCards = [...this.state.stamp_cards]
     let deal = this.state.deals.find(deal => deal.id === deal_id)
     let id
-    fetch('http://localhost:3000/stamp_cards', {
+    fetch('https://go-stamp-card-api.herokuapp.com/stamp_cards', {
       method: 'POST',
       headers: {"Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
@@ -220,7 +220,7 @@ class App extends Component {
   patchStampCard = (id, body) => {
     let newStampCards = [...this.state.stamp_cards]
     // let idx
-    fetch(`http://localhost:3000/stamp_cards/${id}`, {
+    fetch(`https://go-stamp-card-api.herokuapp.com/stamp_cards/${id}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
