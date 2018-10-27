@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import _ from 'lodash'
-import faker from 'faker'
-import { Search, Grid, Header, Segment } from 'semantic-ui-react'
+import { Search } from 'semantic-ui-react'
 
 class Filter extends Component {
 

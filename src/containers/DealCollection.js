@@ -1,7 +1,6 @@
-import React, {Component} from 'react'
+import React from 'react'
 import DealCard from '../components/DealCard'
 import { withRouter } from "react-router-dom"
-import { Image, List } from 'semantic-ui-react'
 
 const DealCollection = (props) => {
   const {deals, store} = props

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import StampCard from '../components/StampCard'
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 class StampCardDetail extends Component{
 
@@ -29,5 +29,4 @@ class StampCardDetail extends Component{
   }
 }
 
-{/* <div className="link-stamp"><Link to='/stamp_cards'>See All Stampcards</Link></div> */}
 export default withRouter(StampCardDetail)

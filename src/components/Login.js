@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import { Button, Checkbox, Form} from 'semantic-ui-react'
+import { Button, Form} from 'semantic-ui-react'
 
 // const login = () => (
 //   return null
