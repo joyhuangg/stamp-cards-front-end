@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import StampCard from '../components/StampCard'
-import {Container} from 'semantic-ui-react'
 import {withRouter} from 'react-router-dom'
 
 class StampCardCollection extends Component{

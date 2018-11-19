@@ -9,10 +9,9 @@ import StampCardConfirmation from './containers/StampCardConfirmation'
 import StoreDetail from './components/StoreDetail'
 import StampCardDetail from './components/StampCardDetail'
 import StampCardCollection from './containers/StampCardCollection'
-import DealCollection from './containers/DealCollection'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
-import {Route,Switch, Redirect, withRouter} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import _ from 'lodash'
 
 

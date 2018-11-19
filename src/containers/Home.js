@@ -25,13 +25,13 @@ export default class Home extends Component{
         <p>Here is the instruction how to use our app</p>
         <Slider ref={c => (this.slider = c)} {...settings}>
          <div key={1}>
-           <img className="home-image" src="./image/store.png" />
+           <img className="home-image" src="./image/store.png" alt="store"/>
          </div>
          <div key={2}>
-           <img className="home-image" src="./image/deal.png" />
+           <img className="home-image" src="./image/deal.png" alt="deal"/>
          </div>
          <div key={3}>
-           <img className="home-image" src="./image/st.png" />
+           <img className="home-image" src="./image/st.png" alt="st"/>
          </div>
        </Slider>
        <div style={{ textAlign: "center" }}>

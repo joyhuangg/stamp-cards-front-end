@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-import { Menu, Segment } from 'semantic-ui-react'
-
 
 
 // general nav bar that will have Login, SignUp on Home Page

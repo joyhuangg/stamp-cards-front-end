@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import StampCardForm from '../components/StampCardForm'
 import StampCard from '../components/StampCard'
 import { withRouter } from "react-router-dom"
-import { Container } from "semantic-ui-react"
 
 class Redeem extends Component{
 
