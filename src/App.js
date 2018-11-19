@@ -76,7 +76,7 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
+        // Authorization: localStorage.getItem("token")
 
       },
       body: JSON.stringify(obj)
@@ -155,7 +155,7 @@ class App extends Component {
         let filteredData = data.filter(stamp_card => {
           return stamp_card.customer_id === this.state.auth.currentUser.id
         })
-        this.setState({stamp_cards: data})
+        this.setState({stamp_cards: filteredData})
       })
   }
 
@@ -199,7 +199,7 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
-        customer_id: this.state.auth.current_user.id,
+        customer_id: this.state.auth.currentUser.id,
         deal_id: deal_id,
         deal: deal,
         current_points: 1
