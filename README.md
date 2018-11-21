@@ -1,6 +1,11 @@
 # Go Stamp! App
 
 Go Stamp! is a stampcard online version build with ReactJs Frontend and Rails Backend.
+
+<img src="/Go Stamp Demo 1.png" />
+<img src="/Go Stamp Demo 2.png" />
+<img src="/Go Stamp Demo 3.png" />
+
 - User can choose stores.
 - Each store had its own deals, when user click on the deal, there will be a stamp card show up.
 - If user enter the right code, user will get 1 stamp.
