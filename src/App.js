@@ -49,7 +49,7 @@ class App extends Component {
 
   componentDidMount(){
     const token = localStorage.getItem("token")
-    if (!!token){
+    if (!!token && token !== "undefined"){
       Promise.all([this.getCurrentUser(token), this.fetchStores(), this.getDeals(),this.getStampCards()])
     }
   }
