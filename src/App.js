@@ -198,7 +198,7 @@ class App extends Component {
         Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
-        customer_id: this.state.auth.current_user.id,
+        customer_id: this.state.auth.currentUser.id,
         deal_id: deal_id,
         deal: deal,
         current_points: 1

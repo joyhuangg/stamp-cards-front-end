@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 class StampCard extends Component{
-
   render(){
     if (this.props.stamp_card.current_points === 6){
       return(
