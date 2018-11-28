@@ -75,7 +75,7 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: localStorage.getItem("token")
+        // Authorization: localStorage.getItem("token")
 
       },
       body: JSON.stringify(obj)
