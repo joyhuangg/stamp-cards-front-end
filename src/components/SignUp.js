@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
 
 class SignUp extends React.Component{
+  
   state = {
     name: "",
     username: "",

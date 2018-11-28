@@ -8,16 +8,14 @@ class Filter extends Component {
     this.props.handleSearch(e, value)
   }
 
-
   render() {
     return (
-
       <div className="search">
         <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} />
       </div>
-
     )
   }
+
 }
 
 export default Filter;

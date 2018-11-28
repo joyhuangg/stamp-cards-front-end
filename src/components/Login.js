@@ -2,10 +2,8 @@ import React from 'react'
 import {withRouter} from 'react-router-dom'
 import { Button, Form} from 'semantic-ui-react'
 
-// const login = () => (
-//   return null
-// )
 class Login extends React.Component{
+
   state={
     error: false,
     username: "",
@@ -44,6 +42,7 @@ class Login extends React.Component{
     e.preventDefault();
     this.login(this.state.username, this.state.password)
   }
+
   render(){
     if (this.state.error){
       alert("Invalid Login Information")
@@ -65,6 +64,7 @@ class Login extends React.Component{
       )
     }
   }
+  
 }
 
 export default withRouter(Login)

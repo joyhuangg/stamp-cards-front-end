@@ -20,8 +20,6 @@ const DealCard = (props) => {
       </Link>
     </div>
 
-
-
   )
 }
 

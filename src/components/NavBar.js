@@ -1,16 +1,7 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-
-
-// general nav bar that will have Login, SignUp on Home Page
-// Stores, StampCards, LogOut Link on Customer's sign in
-// Deals, Customers link on future Store's admin sign in
 class NavBar extends Component{
-
-  // toggleMenu = () => {
-  //   this.setState({showedMenu: !this.state.showedMenu})
-  // }
 
   state = {
     checked: false
